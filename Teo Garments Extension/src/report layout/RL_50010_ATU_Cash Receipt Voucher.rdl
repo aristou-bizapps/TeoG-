@@ -1,0 +1,2082 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>3c9694a2-8c19-4a6d-8a0b-cd1a1602ca9c</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="JnlTmplName_GenJnlBatch">
+          <DataField>JnlTmplName_GenJnlBatch</DataField>
+        </Field>
+        <Field Name="Name_GenJnlBatch">
+          <DataField>Name_GenJnlBatch</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="GeneralJnlTestCaption">
+          <DataField>GeneralJnlTestCaption</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="CompanyAddr1">
+          <DataField>CompanyAddr1</DataField>
+        </Field>
+        <Field Name="CompanyAddr2">
+          <DataField>CompanyAddr2</DataField>
+        </Field>
+        <Field Name="CompanyAddr3">
+          <DataField>CompanyAddr3</DataField>
+        </Field>
+        <Field Name="CompanyAddr4">
+          <DataField>CompanyAddr4</DataField>
+        </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyAddr7">
+          <DataField>CompanyAddr7</DataField>
+        </Field>
+        <Field Name="CompanyAddr8">
+          <DataField>CompanyAddr8</DataField>
+        </Field>
+        <Field Name="CompanyTelNo">
+          <DataField>CompanyTelNo</DataField>
+        </Field>
+        <Field Name="CompanyFaxNo">
+          <DataField>CompanyFaxNo</DataField>
+        </Field>
+        <Field Name="CompanyRegNo">
+          <DataField>CompanyRegNo</DataField>
+        </Field>
+        <Field Name="JnlTemplateName_GenJnlBatch">
+          <DataField>JnlTemplateName_GenJnlBatch</DataField>
+        </Field>
+        <Field Name="JnlName_GenJnlBatch">
+          <DataField>JnlName_GenJnlBatch</DataField>
+        </Field>
+        <Field Name="GenJnlLineFilter">
+          <DataField>GenJnlLineFilter</DataField>
+        </Field>
+        <Field Name="GenJnlLineFilterTableCaption">
+          <DataField>GenJnlLineFilterTableCaption</DataField>
+        </Field>
+        <Field Name="Number_Integer">
+          <DataField>Number_Integer</DataField>
+        </Field>
+        <Field Name="PageNoCaption">
+          <DataField>PageNoCaption</DataField>
+        </Field>
+        <Field Name="JnlTmplNameCaption_GenJnlBatch">
+          <DataField>JnlTmplNameCaption_GenJnlBatch</DataField>
+        </Field>
+        <Field Name="JournalBatchCaption">
+          <DataField>JournalBatchCaption</DataField>
+        </Field>
+        <Field Name="PostingDateCaption">
+          <DataField>PostingDateCaption</DataField>
+        </Field>
+        <Field Name="DocumentTypeCaption">
+          <DataField>DocumentTypeCaption</DataField>
+        </Field>
+        <Field Name="DocNoCaption_GenJnlLine">
+          <DataField>DocNoCaption_GenJnlLine</DataField>
+        </Field>
+        <Field Name="AccountTypeCaption">
+          <DataField>AccountTypeCaption</DataField>
+        </Field>
+        <Field Name="AccNoCaption_GenJnlLine">
+          <DataField>AccNoCaption_GenJnlLine</DataField>
+        </Field>
+        <Field Name="AccNameCaption">
+          <DataField>AccNameCaption</DataField>
+        </Field>
+        <Field Name="DescCaption_GenJnlLine">
+          <DataField>DescCaption_GenJnlLine</DataField>
+        </Field>
+        <Field Name="PostingTypeCaption">
+          <DataField>PostingTypeCaption</DataField>
+        </Field>
+        <Field Name="GenBusPostGroupCaption">
+          <DataField>GenBusPostGroupCaption</DataField>
+        </Field>
+        <Field Name="GenProdPostGroupCaption">
+          <DataField>GenProdPostGroupCaption</DataField>
+        </Field>
+        <Field Name="AmountCaption_GenJnlLine">
+          <DataField>AmountCaption_GenJnlLine</DataField>
+        </Field>
+        <Field Name="BalAccNoCaption_GenJnlLine">
+          <DataField>BalAccNoCaption_GenJnlLine</DataField>
+        </Field>
+        <Field Name="BalLCYCaption_GenJnlLine">
+          <DataField>BalLCYCaption_GenJnlLine</DataField>
+        </Field>
+        <Field Name="ATU_CompanyInfoPicture">
+          <DataField>ATU_CompanyInfoPicture</DataField>
+        </Field>
+        <Field Name="ATU_CompanyAddr1">
+          <DataField>ATU_CompanyAddr1</DataField>
+        </Field>
+        <Field Name="ATU_CompanyAddr2">
+          <DataField>ATU_CompanyAddr2</DataField>
+        </Field>
+        <Field Name="ATU_CompanyAddr3">
+          <DataField>ATU_CompanyAddr3</DataField>
+        </Field>
+        <Field Name="ATU_CompanyAddr4">
+          <DataField>ATU_CompanyAddr4</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr1">
+          <DataField>ATU_CustAddr1</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr2">
+          <DataField>ATU_CustAddr2</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr3">
+          <DataField>ATU_CustAddr3</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr4">
+          <DataField>ATU_CustAddr4</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr5">
+          <DataField>ATU_CustAddr5</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr6">
+          <DataField>ATU_CustAddr6</DataField>
+        </Field>
+        <Field Name="ATU_CustAddr7">
+          <DataField>ATU_CustAddr7</DataField>
+        </Field>
+        <Field Name="ATU_PreparedPostedBy">
+          <DataField>ATU_PreparedPostedBy</DataField>
+        </Field>
+        <Field Name="ATU_AmountReceiptCaption">
+          <DataField>ATU_AmountReceiptCaption</DataField>
+        </Field>
+        <Field Name="PostingDate_GenJnlLine">
+          <DataField>PostingDate_GenJnlLine</DataField>
+        </Field>
+        <Field Name="DocType_GenJnlLine">
+          <DataField>DocType_GenJnlLine</DataField>
+        </Field>
+        <Field Name="DocNo_GenJnlLine">
+          <DataField>DocNo_GenJnlLine</DataField>
+        </Field>
+        <Field Name="ExtDocNo_GenJnlLine">
+          <DataField>ExtDocNo_GenJnlLine</DataField>
+        </Field>
+        <Field Name="AccountType_GenJnlLine">
+          <DataField>AccountType_GenJnlLine</DataField>
+        </Field>
+        <Field Name="AccountNo_GenJnlLine">
+          <DataField>AccountNo_GenJnlLine</DataField>
+        </Field>
+        <Field Name="AccName">
+          <DataField>AccName</DataField>
+        </Field>
+        <Field Name="Description_GenJnlLine">
+          <DataField>Description_GenJnlLine</DataField>
+        </Field>
+        <Field Name="GenPostType_GenJnlLine">
+          <DataField>GenPostType_GenJnlLine</DataField>
+        </Field>
+        <Field Name="GenBusPosGroup_GenJnlLine">
+          <DataField>GenBusPosGroup_GenJnlLine</DataField>
+        </Field>
+        <Field Name="GenProdPostGroup_GenJnlLine">
+          <DataField>GenProdPostGroup_GenJnlLine</DataField>
+        </Field>
+        <Field Name="Amount_GenJnlLine">
+          <DataField>Amount_GenJnlLine</DataField>
+        </Field>
+        <Field Name="Amount_GenJnlLineFormat">
+          <DataField>Amount_GenJnlLineFormat</DataField>
+        </Field>
+        <Field Name="CurrencyCode_GenJnlLine">
+          <DataField>CurrencyCode_GenJnlLine</DataField>
+        </Field>
+        <Field Name="BalAccNo_GenJnlLine">
+          <DataField>BalAccNo_GenJnlLine</DataField>
+        </Field>
+        <Field Name="BalanceLCY_GenJnlLine">
+          <DataField>BalanceLCY_GenJnlLine</DataField>
+        </Field>
+        <Field Name="BalanceLCY_GenJnlLineFormat">
+          <DataField>BalanceLCY_GenJnlLineFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY">
+          <DataField>AmountLCY</DataField>
+        </Field>
+        <Field Name="AmountLCYFormat">
+          <DataField>AmountLCYFormat</DataField>
+        </Field>
+        <Field Name="BalanceLCY">
+          <DataField>BalanceLCY</DataField>
+        </Field>
+        <Field Name="BalanceLCYFormat">
+          <DataField>BalanceLCYFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY_GenJnlLine">
+          <DataField>AmountLCY_GenJnlLine</DataField>
+        </Field>
+        <Field Name="AmountLCY_GenJnlLineFormat">
+          <DataField>AmountLCY_GenJnlLineFormat</DataField>
+        </Field>
+        <Field Name="JnlTmplName_GenJnlLine">
+          <DataField>JnlTmplName_GenJnlLine</DataField>
+        </Field>
+        <Field Name="JnlBatchName_GenJnlLine">
+          <DataField>JnlBatchName_GenJnlLine</DataField>
+        </Field>
+        <Field Name="LineNo_GenJnlLine">
+          <DataField>LineNo_GenJnlLine</DataField>
+        </Field>
+        <Field Name="TotalLCYCaption">
+          <DataField>TotalLCYCaption</DataField>
+        </Field>
+        <Field Name="LocalCurrencyCode">
+          <DataField>LocalCurrencyCode</DataField>
+        </Field>
+        <Field Name="CustAddr1">
+          <DataField>CustAddr1</DataField>
+        </Field>
+        <Field Name="CustAddr2">
+          <DataField>CustAddr2</DataField>
+        </Field>
+        <Field Name="CustAddr3">
+          <DataField>CustAddr3</DataField>
+        </Field>
+        <Field Name="CustAddr4">
+          <DataField>CustAddr4</DataField>
+        </Field>
+        <Field Name="CustAddr5">
+          <DataField>CustAddr5</DataField>
+        </Field>
+        <Field Name="CustAddr6">
+          <DataField>CustAddr6</DataField>
+        </Field>
+        <Field Name="CustAddr7">
+          <DataField>CustAddr7</DataField>
+        </Field>
+        <Field Name="CustAddr8">
+          <DataField>CustAddr8</DataField>
+        </Field>
+        <Field Name="TotalAmtInText">
+          <DataField>TotalAmtInText</DataField>
+        </Field>
+        <Field Name="DimText">
+          <DataField>DimText</DataField>
+        </Field>
+        <Field Name="Number_DimensionLoop">
+          <DataField>Number_DimensionLoop</DataField>
+        </Field>
+        <Field Name="DimensionsCaption">
+          <DataField>DimensionsCaption</DataField>
+        </Field>
+        <Field Name="AccountNo_GenJnlAllocation">
+          <DataField>AccountNo_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AccountName_GenJnlAllocation">
+          <DataField>AccountName_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AllocationQuantity_GenJnlAllocation">
+          <DataField>AllocationQuantity_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AllocationQuantity_GenJnlAllocationFormat">
+          <DataField>AllocationQuantity_GenJnlAllocationFormat</DataField>
+        </Field>
+        <Field Name="AllocationPct_GenJnlAllocation">
+          <DataField>AllocationPct_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AllocationPct_GenJnlAllocationFormat">
+          <DataField>AllocationPct_GenJnlAllocationFormat</DataField>
+        </Field>
+        <Field Name="Amount_GenJnlAllocation">
+          <DataField>Amount_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="Amount_GenJnlAllocationFormat">
+          <DataField>Amount_GenJnlAllocationFormat</DataField>
+        </Field>
+        <Field Name="JournalLineNo_GenJnlAllocation">
+          <DataField>JournalLineNo_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="LineNo_GenJnlAllocation">
+          <DataField>LineNo_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="JournalBatchName_GenJnlAllocation">
+          <DataField>JournalBatchName_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AccountNoCaption_GenJnlAllocation">
+          <DataField>AccountNoCaption_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AccountNameCaption_GenJnlAllocation">
+          <DataField>AccountNameCaption_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AllocationQuantityCaption_GenJnlAllocation">
+          <DataField>AllocationQuantityCaption_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AllocationPctCaption_GenJnlAllocation">
+          <DataField>AllocationPctCaption_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="AmountCaption_GenJnlAllocation">
+          <DataField>AmountCaption_GenJnlAllocation</DataField>
+        </Field>
+        <Field Name="Recurring_GenJnlTemplate">
+          <DataField>Recurring_GenJnlTemplate</DataField>
+        </Field>
+        <Field Name="AllocationDimText">
+          <DataField>AllocationDimText</DataField>
+        </Field>
+        <Field Name="Number_DimensionLoopAllocations">
+          <DataField>Number_DimensionLoopAllocations</DataField>
+        </Field>
+        <Field Name="DimensionAllocationsCaption">
+          <DataField>DimensionAllocationsCaption</DataField>
+        </Field>
+        <Field Name="ErrorTextNumber">
+          <DataField>ErrorTextNumber</DataField>
+        </Field>
+        <Field Name="WarningCaption">
+          <DataField>WarningCaption</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_EntryNo">
+          <DataField>CustLedgerEntry_EntryNo</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_PostingDate">
+          <DataField>CustLedgerEntry_PostingDate</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_DocumentNo">
+          <DataField>CustLedgerEntry_DocumentNo</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_Description">
+          <DataField>CustLedgerEntry_Description</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_CurrencyCode">
+          <DataField>CustLedgerEntry_CurrencyCode</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_RemainingAmount">
+          <DataField>CustLedgerEntry_RemainingAmount</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_RemainingAmountFormat">
+          <DataField>CustLedgerEntry_RemainingAmountFormat</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmountPaid">
+          <DataField>CustLedgerEntry_AmountPaid</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmountPaidFormat">
+          <DataField>CustLedgerEntry_AmountPaidFormat</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmountPaidLCY">
+          <DataField>CustLedgerEntry_AmountPaidLCY</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmountPaidLCYFormat">
+          <DataField>CustLedgerEntry_AmountPaidLCYFormat</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmounttoApply">
+          <DataField>CustLedgerEntry_AmounttoApply</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmounttoApplyFormat">
+          <DataField>CustLedgerEntry_AmounttoApplyFormat</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmounttoApplyLCY">
+          <DataField>CustLedgerEntry_AmounttoApplyLCY</DataField>
+        </Field>
+        <Field Name="CustLedgerEntry_AmounttoApplyLCYFormat">
+          <DataField>CustLedgerEntry_AmounttoApplyLCYFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Body_Table">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>19cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.65cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Body_Container">
+                          <ReportItems>
+                            <Textbox Name="Set_Data">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value />
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <Left>8cm</Left>
+                              <Height>0.2cm</Height>
+                              <Width>0.2cm</Width>
+                              <Visibility>
+                                <Hidden>=Code.SetData(Cstr(Fields!CustAddr1.Value) + Chr(177) +
+Cstr(Fields!CustAddr2.Value) + Chr(177) +
+Cstr(Fields!CustAddr3.Value) + Chr(177) +
+Cstr(Fields!CustAddr4.Value) + Chr(177) +
+Cstr(Fields!CustAddr5.Value) + Chr(177) +
+Cstr(Fields!CustAddr6.Value) + Chr(177) +
+Cstr(Fields!CustAddr7.Value) + Chr(177) +
+Cstr(Fields!CustAddr8.Value) + Chr(177) +
+Cstr(Fields!DocNo_GenJnlLine.Value) + Chr(177) +
+Cstr(Fields!PostingDate_GenJnlLine.Value) + Chr(177) +
+Cstr(Fields!BalAccNo_GenJnlLine.Value) + Chr(177) +
+Cstr(Fields!ExtDocNo_GenJnlLine.Value) + Chr(177) +
+Cstr(Fields!AccountNo_GenJnlLine.Value) + Chr(177) +
+Cstr(Fields!AmountLCY_GenJnlLine.Value) + Chr(177) +
+Cstr(Fields!TotalAmtInText.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr1.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr2.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr3.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr4.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr5.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr6.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr7.Value) + Chr(177) +
+Cstr(Fields!CompanyAddr8.Value) + Chr(177) +
+Cstr(Fields!CompanyTelNo.Value) + Chr(177) +
+Cstr(Fields!CompanyFaxNo.Value) + Chr(177) +
+Cstr(Fields!CompanyRegNo.Value) + Chr(177) +
+Cstr(Fields!ATU_CompanyAddr1.Value) + Chr(177) +
+Cstr(Fields!ATU_CompanyAddr2.Value) + Chr(177) +
+Cstr(Fields!ATU_CompanyAddr3.Value) + Chr(177) +
+Cstr(Fields!ATU_CompanyAddr4.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr1.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr2.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr3.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr4.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr5.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr6.Value) + Chr(177) +
+Cstr(Fields!ATU_CustAddr7.Value) + Chr(177) +
+Cstr(Fields!ATU_PreparedPostedBy.Value) + Chr(177) +
+Cstr(Fields!ATU_AmountReceiptCaption.Value) 
+, 1)</Hidden>
+                              </Visibility>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <BackgroundColor>Red</BackgroundColor>
+                                <PaddingLeft>5pt</PaddingLeft>
+                                <PaddingRight>5pt</PaddingRight>
+                              </Style>
+                            </Textbox>
+                            <Tablix Name="Line_Table">
+                              <TablixBody>
+                                <TablixColumns>
+                                  <TablixColumn>
+                                    <Width>2.5cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>4cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>8.5cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>4cm</Width>
+                                  </TablixColumn>
+                                </TablixColumns>
+                                <TablixRows>
+                                  <TablixRow>
+                                    <Height>0.45cm</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!CustLedgerEntry_PostingDate.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Calibri</FontFamily>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox2</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <PaddingLeft>3pt</PaddingLeft>
+                                              <PaddingRight>3pt</PaddingRight>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox4">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!CustLedgerEntry_DocumentNo.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Calibri</FontFamily>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox4</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <PaddingLeft>3pt</PaddingLeft>
+                                              <PaddingRight>3pt</PaddingRight>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox6">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!CustLedgerEntry_Description.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Calibri</FontFamily>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox6</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <PaddingLeft>3pt</PaddingLeft>
+                                              <PaddingRight>3pt</PaddingRight>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="CustLedgerEntry_AmounttoApplyLCY">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Code.BlankZero(Fields!CustLedgerEntry_AmounttoApplyLCY.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily>Calibri</FontFamily>
+                                                      <Format>=Fields!CustLedgerEntry_AmounttoApplyLCYFormat.Value</Format>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>CustLedgerEntry_AmounttoApplyLCY</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <PaddingLeft>3pt</PaddingLeft>
+                                              <PaddingRight>3pt</PaddingRight>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                </TablixRows>
+                              </TablixBody>
+                              <TablixColumnHierarchy>
+                                <TablixMembers>
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                </TablixMembers>
+                              </TablixColumnHierarchy>
+                              <TablixRowHierarchy>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <Group Name="Body_Header">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!JnlTmplName_GenJnlBatch.Value</GroupExpression>
+                                        <GroupExpression>=Fields!Name_GenJnlBatch.Value</GroupExpression>
+                                        <GroupExpression>=Fields!LineNo_GenJnlLine.Value</GroupExpression>
+                                      </GroupExpressions>
+                                    </Group>
+                                    <SortExpressions>
+                                      <SortExpression>
+                                        <Value>=Fields!JnlTmplName_GenJnlBatch.Value</Value>
+                                      </SortExpression>
+                                      <SortExpression>
+                                        <Value>=Fields!Name_GenJnlBatch.Value</Value>
+                                      </SortExpression>
+                                      <SortExpression>
+                                        <Value>=Fields!LineNo_GenJnlLine.Value</Value>
+                                      </SortExpression>
+                                    </SortExpressions>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <Group Name="Lines">
+                                          <GroupExpressions>
+                                            <GroupExpression>=Fields!CustLedgerEntry_EntryNo.Value</GroupExpression>
+                                          </GroupExpressions>
+                                          <Filters>
+                                            <Filter>
+                                              <FilterExpression>=Fields!CustLedgerEntry_EntryNo.Value</FilterExpression>
+                                              <Operator>GreaterThan</Operator>
+                                              <FilterValues>
+                                                <FilterValue DataType="Integer">0</FilterValue>
+                                              </FilterValues>
+                                            </Filter>
+                                          </Filters>
+                                        </Group>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixRowHierarchy>
+                              <DataSetName>DataSet_Result</DataSetName>
+                              <Top>0.2cm</Top>
+                              <Height>0.45cm</Height>
+                              <Width>19cm</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Tablix>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Header">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!JnlTmplName_GenJnlBatch.Value</GroupExpression>
+                      <GroupExpression>=Fields!Name_GenJnlBatch.Value</GroupExpression>
+                      <GroupExpression>=Fields!LineNo_GenJnlLine.Value</GroupExpression>
+                    </GroupExpressions>
+                    <PageBreak>
+                      <BreakLocation>Between</BreakLocation>
+                      <ResetPageNumber>true</ResetPageNumber>
+                    </PageBreak>
+                  </Group>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Height>0.65cm</Height>
+            <Width>19cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>0.65cm</Height>
+        <Style />
+      </Body>
+      <Width>19cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>7.75cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Image Name="CompanyInfoPicture">
+              <Source>Database</Source>
+              <Value>=Convert.ToBase64String(Fields!ATU_CompanyInfoPicture.Value)</Value>
+              <MIMEType>image/bmp</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Height>1.8cm</Height>
+              <Width>4cm</Width>
+              <Visibility>
+                <Hidden>=IIF(IsNothing(Fields!ATU_CompanyInfoPicture.Value) = True, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="Textbox13">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIf(Fields!CustLedgerEntry_CurrencyCode.Value = "", Fields!LocalCurrencyCode.Value, Fields!CustLedgerEntry_CurrencyCode.Value)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox12</rd:DefaultName>
+              <Top>2.25cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>1cm</Width>
+              <ZIndex>1</ZIndex>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <BackgroundColor>Yellow</BackgroundColor>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50001">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(27, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Left>4.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>14.5cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50002">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(30, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.35cm</Top>
+              <Left>4.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>14.5cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50003">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(29, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.9cm</Top>
+              <Left>4.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>14.5cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50004">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(28, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.45cm</Top>
+              <Left>4.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>14.5cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50005">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_ReportCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>20pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>2.25cm</Top>
+              <Left>5.5cm</Left>
+              <Height>0.9cm</Height>
+              <Width>8cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50006">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_CustomerAddressCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                        <TextDecoration>Underline</TextDecoration>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>3.5cm</Top>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50007">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(31, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>3.95cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>8</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50008">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(37, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>6.65cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>9</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50009">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(36, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>6.2cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>10</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50010">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(35, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>5.75cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>11</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50011">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(34, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>5.3cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>12</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50012">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(33, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>4.85cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>13</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50013">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(32, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>4.4cm</Top>
+              <Height>0.45cm</Height>
+              <Width>11cm</Width>
+              <ZIndex>14</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50014">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_RVNoCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>3.5cm</Top>
+              <Left>12cm</Left>
+              <Height>0.45cm</Height>
+              <Width>3cm</Width>
+              <ZIndex>15</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50015">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_CustomerNoCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>5.3cm</Top>
+              <Left>12cm</Left>
+              <Height>0.45cm</Height>
+              <Width>3cm</Width>
+              <ZIndex>16</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50016">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_ChequeNoCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>4.85cm</Top>
+              <Left>12cm</Left>
+              <Height>0.45cm</Height>
+              <Width>3cm</Width>
+              <ZIndex>17</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50017">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_BankCodeCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>4.4cm</Top>
+              <Left>12cm</Left>
+              <Height>0.45cm</Height>
+              <Width>3cm</Width>
+              <ZIndex>18</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50018">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_DateCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>3.95cm</Top>
+              <Left>12cm</Left>
+              <Height>0.45cm</Height>
+              <Width>3cm</Width>
+              <ZIndex>19</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50019">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=": " &amp; Code.GetData(9, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>3.5cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>20</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50020">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=": " &amp; Code.GetData(13, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>5.3cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>21</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50021">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=": " &amp; Code.GetData(12, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>4.85cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>22</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50022">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=": " &amp; Code.GetData(11, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>4.4cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>23</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50023">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=": " &amp; Code.GetData(10, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>3.95cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>24</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50024">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_DateNormalCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>7.3cm</Top>
+              <Height>0.45cm</Height>
+              <Width>2.5cm</Width>
+              <ZIndex>25</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <BackgroundColor>LightGrey</BackgroundColor>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50025">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(39, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>7.3cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>26</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <BackgroundColor>LightGrey</BackgroundColor>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50026">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_DescriptionCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>7.3cm</Top>
+              <Left>6.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>8.5cm</Width>
+              <ZIndex>27</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <BackgroundColor>LightGrey</BackgroundColor>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50027">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_DocumentNoCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>7.3cm</Top>
+              <Left>2.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>28</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <BackgroundColor>LightGrey</BackgroundColor>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>3.55cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Total_Amount_Lbl">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Constant">Total Amount</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Left>12.5cm</Left>
+              <Height>0.45cm</Height>
+              <Width>2.5cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Total_Amount">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=CDec(Code.GetData(14, 1))</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <Format>#,0.00;(#,0.00)</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <TopBorder>
+                  <Style>Solid</Style>
+                </TopBorder>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Total_Amt_In_Text">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(15, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Height>0.9cm</Height>
+              <Width>11.5cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>5pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Signature">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ATU_PreparedPostedByCaption.Value</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>3cm</Top>
+              <Height>0.45cm</Height>
+              <Width>5cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <TopBorder>
+                  <Style>Solid</Style>
+                </TopBorder>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox50000">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(38, 1)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>2.45cm</Top>
+              <Height>0.45cm</Height>
+              <Width>5cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>3pt</PaddingLeft>
+                <PaddingRight>3pt</PaddingRight>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>0.5cm</TopMargin>
+        <BottomMargin>0.5cm</BottomMargin>
+        <ColumnSpacing>1.27cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ATU_ReportCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_ReportCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_ReportCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_RVNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_RVNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_RVNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_DateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_DateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_DateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_BankCodeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_BankCodeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_BankCodeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_ChequeNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_ChequeNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_ChequeNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_CustomerNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_CustomerNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_CustomerNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_CustomerAddressCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_CustomerAddressCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_CustomerAddressCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_DateNormalCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_DateNormalCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_DateNormalCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_DocumentNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_DocumentNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_DocumentNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_DescriptionCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_DescriptionCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_DescriptionCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_TotalAmountCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_TotalAmountCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_TotalAmountCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ATU_PreparedPostedByCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_PreparedPostedByCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_PreparedPostedByCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>1</NumberOfColumns>
+      <NumberOfRows>12</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ATU_ReportCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>ATU_RVNoCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>ATU_DateCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>ATU_BankCodeCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>ATU_ChequeNoCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>5</RowIndex>
+          <ParameterName>ATU_CustomerNoCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>ATU_CustomerAddressCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>7</RowIndex>
+          <ParameterName>ATU_DateNormalCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>8</RowIndex>
+          <ParameterName>ATU_DocumentNoCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>9</RowIndex>
+          <ParameterName>ATU_DescriptionCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>10</RowIndex>
+          <ParameterName>ATU_TotalAmountCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>11</RowIndex>
+          <ParameterName>ATU_PreparedPostedByCaption</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Shared Data1 as Object
+Shared Data2 as Object
+Shared Data3 as Object
+Shared Data4 as Object
+
+Public Function GetData(Num as Integer, Group as integer) as Object
+if Group = 1 then
+   Return Cstr(Choose(Num, Split(Cstr(Data1),Chr(177))))
+End If
+
+if Group = 2 then
+   Return Cstr(Choose(Num, Split(Cstr(Data2),Chr(177))))
+End If
+
+if Group = 3 then
+   Return Cstr(Choose(Num, Split(Cstr(Data3),Chr(177))))
+End If
+
+if Group = 4 then
+   Return Cstr(Choose(Num, Split(Cstr(Data4),Chr(177))))
+End If
+End Function
+
+Public Function SetData(NewData as Object,Group as integer)
+  If Group = 1 and NewData &gt; "" Then
+      Data1 = NewData
+  End If
+
+  If Group = 2 and NewData &gt; "" Then
+      Data2 = NewData
+  End If
+
+  If Group = 3 and NewData &gt; "" Then
+      Data3 = NewData
+  End If
+
+  If Group = 4 and NewData &gt; "" Then
+      Data4 = NewData
+  End If
+
+  Return True
+End Function</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+</Report>
