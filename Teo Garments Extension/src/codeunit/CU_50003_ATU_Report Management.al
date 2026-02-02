@@ -437,12 +437,12 @@ codeunit 50003 "ATU_Report Management"
             exit(ATU_lCountryRegion.Name);
     end;
 
-    procedure ATU_IsPOPendingApproval(ATU_pPOReportType: Enum "ATU_PO Report Type"): Boolean
+    procedure ATU_IsPOPendingApproval(ATU_pPOStatus: Enum "Purchase Document Status"): Boolean
     begin
-        if ATU_pPOReportType = ATU_pPOReportType::"Pending Approval" then
-            exit(true);
+        if ATU_pPOStatus = ATU_pPOStatus::Released then
+            exit(false);
 
-        exit(false);
+        exit(true);
     end;
 
     procedure ATU_GetBankCode(ATU_pBankAccountNo: Text[30]): Code[20]
@@ -561,6 +561,23 @@ codeunit 50003 "ATU_Report Management"
         ATU_lApplnAmountToApply := ATU_lCurrExchRate.ApplnExchangeAmtFCYToFCY(ATU_pApplnDate, ATU_pCurrencyCode, ATU_lApplnCurrencyCode, ATU_pAmountToApply, ATU_lValidExchRate);
 
         exit(ATU_lApplnAmountToApply);
+    end;
+
+    procedure ATU_GetPOApprovedBy(ATU_pPurchHdr: Record "Purchase Header"): Code[50]
+    var
+        ATU_lApprovalEntry: Record "Approval Entry";
+    begin
+        ATU_lApprovalEntry.Reset();
+        ATU_lApprovalEntry.SetCurrentKey("Entry No.", "Record ID to Approve", "Table ID", "Document Type", "Document No.");
+        ATU_lApprovalEntry.SetRange("Record ID to Approve", ATU_pPurchHdr.RecordId);
+        ATU_lApprovalEntry.SetRange("Table ID", ATU_pPurchHdr.RecordId.TableNo);
+        ATU_lApprovalEntry.SetRange("Document Type", ATU_pPurchHdr."Document Type");
+        ATU_lApprovalEntry.SetRange("Document No.", ATU_pPurchHdr."No.");
+        ATU_lApprovalEntry.SetRange(Status, ATU_lApprovalEntry.Status::Approved);
+        if ATU_lApprovalEntry.FindLast() then
+            exit(ATU_lApprovalEntry."Approver ID");
+
+        exit('');
     end;
 }
 //HS.1-

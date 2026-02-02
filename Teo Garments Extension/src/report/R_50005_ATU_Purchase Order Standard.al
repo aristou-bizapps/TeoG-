@@ -42,7 +42,7 @@ report 50005 "ATU_Purchase Order Standard"
             column(ATU_PayToAddr4; ATU_gPayToAddress[4]) { }
             column(ATU_PayToAddr5; ATU_gPayToAddress[5]) { }
             column(ATU_PayToAddr6; ATU_gPayToAddress[6]) { }
-            column(ATU_IsPOPendingApproval; ATU_gReportMgmt.ATU_IsPOPendingApproval(ATU_gPOReportType)) { }
+            column(ATU_IsPOPendingApproval; ATU_gReportMgmt.ATU_IsPOPendingApproval(Status)) { }
             column(ATU_DocumentNo; "No.") { }
             column(ATU_Date; Format("Posting Date", 0, '<Day,2>/<Month,2>/<Year4>')) { }
             column(ATU_RevisionDateRefNo; '') { }
@@ -56,9 +56,9 @@ report 50005 "ATU_Purchase Order Standard"
             column(ATU_TaxTotalAmt; "Amount Including VAT" - Amount) { }
             column(ATU_TotalAmt; "Amount Including VAT") { }
             column(ATU_Remarks; '') { }
-            column(ATU_IssuedBy; '') { }
+            column(ATU_IssuedBy; UserId) { }
             column(ATU_VerifiedBy; '') { }
-            column(ATU_ApprovedBy; '') { }
+            column(ATU_ApprovedBy; ATU_gReportMgmt.ATU_GetPOApprovedBy("Purchase Header")) { }
 
             dataitem("Purchase Line"; "Purchase Line")
             {
@@ -101,22 +101,6 @@ report 50005 "ATU_Purchase Order Standard"
     requestpage
     {
         SaveValues = true;
-
-        layout
-        {
-            area(Content)
-            {
-                group(ATU_Options)
-                {
-                    Caption = 'Options';
-                    field(ATU_POReportType; ATU_gPOReportType)
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Report Type';
-                    }
-                }
-            }
-        }
     }
 
     rendering
@@ -175,6 +159,5 @@ report 50005 "ATU_Purchase Order Standard"
         ATU_gBuyFromAddress, ATU_gShipToAddress, ATU_gPayToAddress : array[6] of Text[150];
         ATU_gRunningNo: Integer;
         ATU_gRunningNoFormat: Text[5];
-        ATU_gPOReportType: Enum "ATU_PO Report Type";
 }
 //HS.1-
