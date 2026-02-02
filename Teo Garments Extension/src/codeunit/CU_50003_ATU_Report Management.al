@@ -457,6 +457,14 @@ codeunit 50003 "ATU_Report Management"
         exit('');
     end;
 
+    procedure ATU_GetBankAccountID(ATU_pBalAcctType: Enum "Gen. Journal Account Type"; ATU_pBalAcctNo: Code[20]): Code[20]
+    begin
+        if (ATU_pBalAcctType = ATU_pBalAcctType::"Bank Account") and (ATU_pBalAcctNo <> '') then
+            exit(ATU_pBalAcctNo);
+
+        exit('');
+    end;
+
     procedure ATU_GetVendorNo(ATU_pAccountType: Enum "Gen. Journal Account Type"; ATU_pAccountNo: Code[20]): Code[20]
     begin
         if (ATU_pAccountType = ATU_pAccountType::Vendor) and (ATU_pAccountNo <> '') then

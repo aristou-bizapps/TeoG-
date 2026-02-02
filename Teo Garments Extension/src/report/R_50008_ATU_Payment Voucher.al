@@ -33,7 +33,7 @@ report 50008 "ATU_Payment Voucher"
             column(ATU_JnlBatchName; "Journal Batch Name") { }
             column(ATU_PVNo; "Document No.") { }
             column(ATU_Date; Format("Posting Date", 0, '<Day,2>-<Month Text,3>-<Year4>')) { }
-            column(ATU_BankAcctID; '') { }
+            column(ATU_BankAcctID; ATU_gReportMgmt.ATU_GetBankAccountID("Bal. Account Type", "Bal. Account No.")) { }
             column(ATU_PaymentMode; "Payment Method Code") { }
             column(ATU_ReferenceNo; "External Document No.") { }
             column(ATU_VendorNo; ATU_gReportMgmt.ATU_GetVendorNo("Account Type", "Account No.")) { }
