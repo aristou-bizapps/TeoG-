@@ -41,7 +41,8 @@ report 50006 "ATU_THL Unposted Tax Invoice"
             column(ATU_TotalAmt; "Amount Including VAT") { }
             column(ATU_TotalAmtInText; ATU_gTotalAmtInText) { }
             column(ATU_BankTransfer; StrSubstNo('Bank Transfer: %1', ATU_gCompanyInfo."Bank Name")) { }
-            column(ATU_BankCode; StrSubstNo('Bank Code: %1', ATU_gReportMgmt.ATU_GetBankCode(ATU_gCompanyInfo."Bank Account No."))) { }
+            // column(ATU_BankCode; StrSubstNo('Bank Code: %1', ATU_gReportMgmt.ATU_GetBankCode(ATU_gCompanyInfo."Bank Account No."))) { }
+            column(ATU_BankCode; StrSubstNo('Bank Code: %1', ATU_gCompanyInfo."Bank Branch No.")) { }
             column(ATU_BankAccountNo; StrSubstNo('Account Number: %1', ATU_gCompanyInfo."Bank Account No.")) { }
             column(ATU_PayNowUEN; StrSubstNo('PayNow UEN: %1', ATU_gCompanyInfo."Registration No.")) { }
             column(ATU_PayNowQRCode; '') { }
