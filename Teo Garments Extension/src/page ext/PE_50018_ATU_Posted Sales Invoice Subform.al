@@ -1,17 +1,17 @@
 /*
 NO      DEV     DATE            DESCRIPTION
 =========================================================================================================================
-1       HS      2026-01-28      Create new "Sales Order Subform" page extension
+1       HS      2026-02-04      Create new "Posted Sales Invoice Subform" page extension
 2                               Pull out new fields
 */
 
 //HS.1+
-pageextension 50011 "ATU_Sales Order Subform" extends "Sales Order Subform"
+pageextension 50018 "ATU_Posted Sales Inv. Subform" extends "Posted Sales Invoice Subform"
 {
 
     layout
     {
-        addafter("Unit of Measure Code")
+        addafter(Quantity)
         {
             //HS.1+
             field("ATU_Buyer No."; Rec."ATU_Buyer No.")

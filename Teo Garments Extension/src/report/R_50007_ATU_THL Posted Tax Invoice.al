@@ -45,7 +45,7 @@ report 50007 "ATU_THL Posted Tax Invoice"
             column(ATU_BankCode; StrSubstNo('Bank Code: %1', ATU_gCompanyInfo."Bank Branch No.")) { }
             column(ATU_BankAccountNo; StrSubstNo('Account Number: %1', ATU_gCompanyInfo."Bank Account No.")) { }
             column(ATU_PayNowUEN; StrSubstNo('PayNow UEN: %1', ATU_gCompanyInfo."Registration No.")) { }
-            column(ATU_PayNowQRCode; '') { }
+            column(ATU_PayNowQRCode; ATU_gCompanyInfo."ATU_PayNow QR Code") { }
             column(ATU_AmountCaption; StrSubstNo('AMOUNT %1', ATU_gReportMgmt.ATU_GetCurrencyCode("Currency Code"))) { }
             column(ATU_GSTPercentageCaption; StrSubstNo('GST %1%', ATU_gReportMgmt.ATU_GetTaxPercentage("Sales Invoice Header"))) { }
             column(ATU_TotalAmtCaption; StrSubstNo('TOTAL (%1)', ATU_gReportMgmt.ATU_GetCurrencyCode("Currency Code"))) { }
@@ -120,7 +120,7 @@ report 50007 "ATU_THL Posted Tax Invoice"
     trigger OnInitReport()
     begin
         ATU_gCompanyInfo.Get();
-        ATU_gCompanyInfo.CalcFields(Picture);
+        ATU_gCompanyInfo.CalcFields(Picture, "ATU_PayNow QR Code");
     end;
 
     var

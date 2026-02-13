@@ -144,7 +144,7 @@ report 50003 "ATU_Tax Invoice"
         ATU_gFunctionMgmt: Codeunit "ATU_Function Management";
         ATU_gCompanyInfo: Record "Company Information";
         ATU_gCompanyAddress: array[4] of Text[500];
-        ATU_gBillToAddress, ATU_gShipToAddress : array[5] of Text[150];
+        ATU_gBillToAddress, ATU_gShipToAddress : array[7] of Text[150];
         ATU_gRunningNo: Integer;
         ATU_gRunningNoFormat: Text[5];
         ATU_gIsTGCCompany: Boolean;

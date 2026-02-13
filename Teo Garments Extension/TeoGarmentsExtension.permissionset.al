@@ -14,5 +14,21 @@ permissionset 50001 TeoGarmentsExtension
         report "ATU_Payment Voucher" = X,
         report "ATU_THL Posted Tax Invoice" = X,
         report "ATU_Cash Receipt Voucher" = X,
-        report "ATU_Customer Statement (Email)" = X;
+        report "ATU_Customer Statement (Email)" = X,
+        tabledata "ATU_Country Of Destination" = RIMD,
+        tabledata "ATU_Country Of Origin" = RIMD,
+        tabledata ATU_Division = RIMD,
+        tabledata "ATU_Factory Name" = RIMD,
+        tabledata ATU_Gender = RIMD,
+        table "ATU_Country Of Destination" = X,
+        table "ATU_Country Of Origin" = X,
+        table ATU_Division = X,
+        table "ATU_Factory Name" = X,
+        table ATU_Gender = X,
+        page "ATU_Country of Destination" = X,
+        page "ATU_Country of Origin" = X,
+        page ATU_Division = X,
+        page "ATU_Factory Name" = X,
+        page ATU_Gender = X,
+        report "ATU_Import Sales Order" = X;
 }

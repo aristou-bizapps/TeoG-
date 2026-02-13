@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>13.75cm</Height>
+                  <Height>13.3cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -212,7 +212,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!ATU_Line_StyleNo.Value</Value>
+                                                    <Value>=Fields!ATU_Line_ItemNo.Value</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                     </Style>
@@ -515,7 +515,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>13.75cm</Height>
+            <Height>13.3cm</Height>
             <Width>20cm</Width>
             <Style>
               <Border>
@@ -524,7 +524,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>13.75cm</Height>
+        <Height>13.3cm</Height>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -534,7 +534,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
       <Width>20cm</Width>
       <Page>
         <PageHeader>
-          <Height>10.95cm</Height>
+          <Height>11.4cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -805,7 +805,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
               <Width>5cm</Width>
               <ZIndex>9</ZIndex>
               <Visibility>
-                <Hidden>=Iif(Code.GetData(23, 1) = True, False, True)</Hidden>
+                <Hidden>=True'Iif(Code.GetData(23, 1) = True, False, True)</Hidden>
               </Visibility>
               <Style>
                 <Border>
@@ -1218,7 +1218,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>5.4cm</Top>
-              <Height>2.9cm</Height>
+              <Height>3.35cm</Height>
               <Width>6.6cm</Width>
               <ZIndex>17</ZIndex>
               <Style>
@@ -1443,7 +1443,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
               <KeepTogether>true</KeepTogether>
               <Top>5.4cm</Top>
               <Left>6.6cm</Left>
-              <Height>2.9cm</Height>
+              <Height>3.35cm</Height>
               <Width>6.6cm</Width>
               <ZIndex>19</ZIndex>
               <Style>
@@ -1668,7 +1668,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
               <KeepTogether>true</KeepTogether>
               <Top>5.4cm</Top>
               <Left>13.2cm</Left>
-              <Height>2.9cm</Height>
+              <Height>3.35cm</Height>
               <Width>6.8cm</Width>
               <ZIndex>21</ZIndex>
               <Style>
@@ -1694,7 +1694,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>8.5cm</Top>
+              <Top>8.95cm</Top>
               <Height>0.9cm</Height>
               <Width>1.8cm</Width>
               <ZIndex>22</ZIndex>
@@ -1723,7 +1723,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>8.5cm</Top>
+              <Top>8.95cm</Top>
               <Left>1.8cm</Left>
               <Height>0.9cm</Height>
               <Width>4.8cm</Width>
@@ -1754,7 +1754,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>9.4cm</Top>
+              <Top>9.85cm</Top>
               <Height>0.9cm</Height>
               <Width>1.8cm</Width>
               <ZIndex>24</ZIndex>
@@ -1783,7 +1783,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>9.4cm</Top>
+              <Top>9.85cm</Top>
               <Left>1.8cm</Left>
               <Height>0.9cm</Height>
               <Width>4.8cm</Width>
@@ -1814,7 +1814,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>8.5cm</Top>
+              <Top>8.95cm</Top>
               <Left>6.6cm</Left>
               <Height>0.9cm</Height>
               <Width>2.5cm</Width>
@@ -1845,7 +1845,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>9.4cm</Top>
+              <Top>9.85cm</Top>
               <Left>6.6cm</Left>
               <Height>0.9cm</Height>
               <Width>2.5cm</Width>
@@ -1875,7 +1875,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>8.5cm</Top>
+              <Top>8.95cm</Top>
               <Left>9.1cm</Left>
               <Height>0.9cm</Height>
               <Width>4.1cm</Width>
@@ -1905,7 +1905,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>9.4cm</Top>
+              <Top>9.85cm</Top>
               <Left>9.1cm</Left>
               <Height>0.9cm</Height>
               <Width>4.1cm</Width>
@@ -1936,7 +1936,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>8.5cm</Top>
+              <Top>8.95cm</Top>
               <Left>13.2cm</Left>
               <Height>0.9cm</Height>
               <Width>2.2cm</Width>
@@ -1967,7 +1967,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>9.4cm</Top>
+              <Top>9.85cm</Top>
               <Left>13.2cm</Left>
               <Height>0.9cm</Height>
               <Width>2.2cm</Width>
@@ -1997,7 +1997,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>8.5cm</Top>
+              <Top>8.95cm</Top>
               <Left>15.4cm</Left>
               <Height>0.9cm</Height>
               <Width>4.6cm</Width>
@@ -2027,7 +2027,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>9.4cm</Top>
+              <Top>9.85cm</Top>
               <Left>15.4cm</Left>
               <Height>0.9cm</Height>
               <Width>4.6cm</Width>
@@ -2060,7 +2060,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Height>0.45cm</Height>
               <Width>1cm</Width>
               <ZIndex>34</ZIndex>
@@ -2093,7 +2093,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>15.5cm</Left>
               <Height>0.45cm</Height>
               <Width>2.25cm</Width>
@@ -2125,7 +2125,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>10.5cm</Left>
               <Height>0.45cm</Height>
               <Width>2.5cm</Width>
@@ -2147,7 +2147,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!ATU_StyleNoCaption.Value</Value>
+                      <Value>=Parameters!ATU_ItemNoCaption.Value</Value>
                       <Style>
                         <FontFamily>Calibri</FontFamily>
                         <FontWeight>Bold</FontWeight>
@@ -2157,7 +2157,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>1cm</Left>
               <Height>0.45cm</Height>
               <Width>2.3cm</Width>
@@ -2189,7 +2189,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>7.8cm</Left>
               <Height>0.45cm</Height>
               <Width>2.7cm</Width>
@@ -2223,7 +2223,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>14cm</Left>
               <Height>0.45cm</Height>
               <Width>1.5cm</Width>
@@ -2257,7 +2257,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>17.75cm</Left>
               <Height>0.45cm</Height>
               <Width>2.25cm</Width>
@@ -2291,7 +2291,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>13cm</Left>
               <Height>0.45cm</Height>
               <Width>1cm</Width>
@@ -2323,7 +2323,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>10.5cm</Top>
+              <Top>10.95cm</Top>
               <Left>3.3cm</Left>
               <Height>0.45cm</Height>
               <Width>4.5cm</Width>
@@ -2346,7 +2346,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>4cm</Height>
+          <Height>3.55cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2676,41 +2676,10 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                     </Paragraph>
                   </Paragraphs>
                   <Top>2.25cm</Top>
+                  <Left>1cm</Left>
                   <Height>0.45cm</Height>
                   <Width>6cm</Width>
                   <ZIndex>4</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>3pt</PaddingLeft>
-                    <PaddingRight>3pt</PaddingRight>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox50066">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Code.GetData(38, 1)</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>2.7cm</Top>
-                  <Left>7cm</Left>
-                  <Height>0.45cm</Height>
-                  <Width>6cm</Width>
-                  <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -2739,9 +2708,10 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                     </Paragraph>
                   </Paragraphs>
                   <Top>2.7cm</Top>
+                  <Left>1cm</Left>
                   <Height>0.45cm</Height>
                   <Width>6cm</Width>
-                  <ZIndex>6</ZIndex>
+                  <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -2771,43 +2741,10 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                     </Paragraph>
                   </Paragraphs>
                   <Top>2.25cm</Top>
-                  <Left>14cm</Left>
+                  <Left>13cm</Left>
                   <Height>0.45cm</Height>
                   <Width>6cm</Width>
-                  <ZIndex>7</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>3pt</PaddingLeft>
-                    <PaddingRight>3pt</PaddingRight>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox50069">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Parameters!ATU_VerifiedByCaption.Value</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>2.25cm</Top>
-                  <Left>7cm</Left>
-                  <Height>0.45cm</Height>
-                  <Width>6cm</Width>
-                  <ZIndex>8</ZIndex>
+                  <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -2836,74 +2773,10 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                     </Paragraph>
                   </Paragraphs>
                   <Top>2.7cm</Top>
-                  <Left>14cm</Left>
+                  <Left>13cm</Left>
                   <Height>0.45cm</Height>
                   <Width>6cm</Width>
-                  <ZIndex>9</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>3pt</PaddingLeft>
-                    <PaddingRight>3pt</PaddingRight>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox50071">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>3.15cm</Top>
-                  <Left>7cm</Left>
-                  <Height>0.45cm</Height>
-                  <Width>6cm</Width>
-                  <ZIndex>10</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>3pt</PaddingLeft>
-                    <PaddingRight>3pt</PaddingRight>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox50072">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>3.15cm</Top>
-                  <Left>14cm</Left>
-                  <Height>0.45cm</Height>
-                  <Width>6cm</Width>
-                  <ZIndex>11</ZIndex>
+                  <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -2914,10 +2787,10 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                   </Style>
                 </Textbox>
                 <Line Name="Line4">
-                  <Top>3.8cm</Top>
+                  <Top>3.35cm</Top>
                   <Height>0cm</Height>
                   <Width>20cm</Width>
-                  <ZIndex>12</ZIndex>
+                  <ZIndex>8</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -2926,7 +2799,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
                 </Line>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Height>4cm</Height>
+              <Height>3.55cm</Height>
               <Width>20cm</Width>
               <Style>
                 <Border>
@@ -3097,6 +2970,15 @@ Cstr(Fields!ATU_ApprovedBy.Value)
       </DefaultValue>
       <Prompt>ATU_ItemCaption</Prompt>
     </ReportParameter>
+    <ReportParameter Name="ATU_ItemNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ATU_ItemNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ATU_ItemNoCaption</Prompt>
+    </ReportParameter>
     <ReportParameter Name="ATU_StyleNoCaption">
       <DataType>String</DataType>
       <DefaultValue>
@@ -3227,7 +3109,7 @@ Cstr(Fields!ATU_ApprovedBy.Value)
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>30</NumberOfRows>
+      <NumberOfRows>31</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -3312,71 +3194,76 @@ Cstr(Fields!ATU_ApprovedBy.Value)
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>16</RowIndex>
-          <ParameterName>ATU_StyleNoCaption</ParameterName>
+          <ParameterName>ATU_ItemNoCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>17</RowIndex>
-          <ParameterName>ATU_DescriptionCaption</ParameterName>
+          <ParameterName>ATU_StyleNoCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>18</RowIndex>
-          <ParameterName>ATU_CustomerPONoCaption</ParameterName>
+          <ParameterName>ATU_DescriptionCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>19</RowIndex>
-          <ParameterName>ATU_ColourCaption</ParameterName>
+          <ParameterName>ATU_CustomerPONoCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>20</RowIndex>
-          <ParameterName>ATU_UnitCaption</ParameterName>
+          <ParameterName>ATU_ColourCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>21</RowIndex>
-          <ParameterName>ATU_QtyCaption</ParameterName>
+          <ParameterName>ATU_UnitCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>22</RowIndex>
-          <ParameterName>ATU_PriceCaption</ParameterName>
+          <ParameterName>ATU_QtyCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>23</RowIndex>
-          <ParameterName>ATU_TotalCaption</ParameterName>
+          <ParameterName>ATU_PriceCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>24</RowIndex>
-          <ParameterName>ATU_RemarksCaption</ParameterName>
+          <ParameterName>ATU_TotalCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>25</RowIndex>
-          <ParameterName>ATU_NetTotalCaption</ParameterName>
+          <ParameterName>ATU_RemarksCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>26</RowIndex>
-          <ParameterName>ATU_TaxTotalCaption</ParameterName>
+          <ParameterName>ATU_NetTotalCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>27</RowIndex>
-          <ParameterName>ATU_IssuedByCaption</ParameterName>
+          <ParameterName>ATU_TaxTotalCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>28</RowIndex>
-          <ParameterName>ATU_VerifiedByCaption</ParameterName>
+          <ParameterName>ATU_IssuedByCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>29</RowIndex>
+          <ParameterName>ATU_VerifiedByCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>30</RowIndex>
           <ParameterName>ATU_ApprovedByCaption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
@@ -3574,6 +3461,9 @@ End Function</Code>
         </Field>
         <Field Name="ATU_Line_StyleNo">
           <DataField>ATU_Line_StyleNo</DataField>
+        </Field>
+        <Field Name="ATU_Line_ItemNo">
+          <DataField>ATU_Line_ItemNo</DataField>
         </Field>
         <Field Name="ATU_Line_Description">
           <DataField>ATU_Line_Description</DataField>
