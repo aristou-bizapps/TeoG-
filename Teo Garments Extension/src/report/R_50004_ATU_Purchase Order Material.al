@@ -55,7 +55,7 @@ report 50004 "ATU_Purchase Order Material"
             column(ATU_NetTotalAmt; Amount) { }
             column(ATU_TaxTotalAmt; "Amount Including VAT" - Amount) { }
             column(ATU_TotalAmt; "Amount Including VAT") { }
-            column(ATU_Remarks; '') { }
+            column(ATU_Remarks; ATU_Remarks) { }
             column(ATU_IssuedBy; UserId) { }
             column(ATU_VerifiedBy; '') { }
             column(ATU_ApprovedBy; ATU_gReportMgmt.ATU_GetPOApprovedBy("Purchase Header")) { }
@@ -67,9 +67,10 @@ report 50004 "ATU_Purchase Order Material"
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
                 column(ATU_Line_RunningNo; ATU_gRunningNoFormat) { }
                 column(ATU_Line_StyleNo; "No.") { }
+                column(ATU_Line_ItemNo; ATU_gItemNo) { }
                 column(ATU_Line_Description; Description) { }
-                column(ATU_Line_CodeNo; '') { }
-                column(ATU_Line_Colour; '') { }
+                column(ATU_Line_CodeNo; "ATU_Code No.") { }
+                column(ATU_Line_Colour; ATU_Colour) { }
                 column(ATU_Line_Unit; "Unit of Measure Code") { }
                 column(ATU_Line_Qty; Quantity) { }
                 column(ATU_Line_Price; "Direct Unit Cost") { }
@@ -78,10 +79,14 @@ report 50004 "ATU_Purchase Order Material"
                 trigger OnAfterGetRecord()
                 begin
                     Clear(ATU_gRunningNoFormat);
+                    Clear(ATU_gItemNo);
 
                     if Type <> Type::" " then begin
                         ATU_gRunningNo += 1;
                         ATU_gRunningNoFormat := Format(ATU_gRunningNo);
+
+                        if Type = Type::Item then
+                            ATU_gItemNo := "No.";
                     end;
                 end;
             }
@@ -130,6 +135,7 @@ report 50004 "ATU_Purchase Order Material"
         ATU_TradeTermCaption = 'Trade Term';
         ATU_SalesTermCaption = 'Sales Term';
         ATU_ItemCaption = 'ITEM';
+        ATU_ItemNoCaption = 'ITEM NO.';
         ATU_StyleNoCaption = 'STYLE NO.';
         ATU_DescriptionCaption = 'DESCRIPTION';
         ATU_CodeNoCaption = 'CODE NO.';
@@ -159,5 +165,6 @@ report 50004 "ATU_Purchase Order Material"
         ATU_gBuyFromAddress, ATU_gShipToAddress, ATU_gPayToAddress : array[6] of Text[150];
         ATU_gRunningNo: Integer;
         ATU_gRunningNoFormat: Text[5];
+        ATU_gItemNo: Code[20];
 }
 //HS.1-

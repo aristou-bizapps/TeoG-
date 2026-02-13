@@ -3,11 +3,30 @@ NO      DEV     DATE            DESCRIPTION
 =========================================================================================================================
 1       HS      2026-01-20      Create new "Purchase Order" page extension
 2                               Add new action to print the "Purchase Order" report
+3               2026-02-03      Pull out "Sales Order No.", "Remarks" field
 */
 
 //HS.1+
 pageextension 50008 "ATU_Purchase Order" extends "Purchase Order"
 {
+    layout
+    {
+        addlast(General)
+        {
+            //HS.3+
+            field("ATU_Sales Order No."; Rec."ATU_Sales Order No.")
+            {
+                ApplicationArea = All;
+            }
+            field(ATU_Remarks; Rec.ATU_Remarks)
+            {
+                ApplicationArea = All;
+                MultiLine = true;
+            }
+            //HS.3-
+        }
+    }
+
     actions
     {
         //HS.2+

@@ -1,23 +1,21 @@
 /*
 NO      DEV     DATE            DESCRIPTION
 =========================================================================================================================
-1       HS      2026-01-28      Create new "Sales Order Subform" page extension
+1       HS      2026-02-04      Create new "Item Ledger Entries" page extension
 2                               Pull out new fields
 */
 
 //HS.1+
-pageextension 50011 "ATU_Sales Order Subform" extends "Sales Order Subform"
+pageextension 50020 "ATU_Item Ledger Entries" extends "Item Ledger Entries"
 {
-
     layout
     {
-        addafter("Unit of Measure Code")
+        //HS.2+
+        addafter("Location Code")
         {
-            //HS.1+
             field("ATU_Buyer No."; Rec."ATU_Buyer No.")
             {
                 ApplicationArea = All;
-                Editable = false;
             }
             field("ATU_Buyer Name"; Rec."ATU_Buyer Name")
             {
@@ -26,7 +24,6 @@ pageextension 50011 "ATU_Sales Order Subform" extends "Sales Order Subform"
             field("ATU_Supplier No."; Rec."ATU_Supplier No.")
             {
                 ApplicationArea = All;
-                Editable = false;
             }
             field("ATU_Supplier Name"; Rec."ATU_Supplier Name")
             {
@@ -112,8 +109,12 @@ pageextension 50011 "ATU_Sales Order Subform" extends "Sales Order Subform"
             {
                 ApplicationArea = All;
             }
-            //HS.1-
+            field("ATU_Code No."; Rec."ATU_Code No.")
+            {
+                ApplicationArea = All;
+            }
         }
+        //HS.2-
     }
 }
 //HS.1-

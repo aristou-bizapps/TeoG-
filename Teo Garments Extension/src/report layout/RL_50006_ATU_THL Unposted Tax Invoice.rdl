@@ -74,7 +74,7 @@ Cstr(Fields!ATU_BankTransfer.Value) + Chr(177) +
 Cstr(Fields!ATU_BankCode.Value) + Chr(177) +
 Cstr(Fields!ATU_BankAccountNo.Value) + Chr(177) +
 Cstr(Fields!ATU_PayNowUEN.Value) + Chr(177) +
-Cstr(Fields!ATU_PayNowQRCode.Value) + Chr(177) +
+Chr(177) +
 Cstr(Fields!ATU_AmountCaption.Value) + Chr(177) +
 Cstr(Fields!ATU_GSTPercentageCaption.Value) + Chr(177) +
 Cstr(Fields!ATU_TotalAmtCaption.Value) 
@@ -1829,6 +1829,25 @@ Cstr(Fields!ATU_TotalAmtCaption.Value)
                 <PaddingRight>3pt</PaddingRight>
               </Style>
             </Textbox>
+            <Image Name="PayNowQRCode">
+              <Source>Database</Source>
+              <Value>=Convert.ToBase64String(Fields!ATU_PayNowQRCode.Value)</Value>
+              <MIMEType>image/bmp</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>1.65cm</Top>
+              <Left>8cm</Left>
+              <Height>3.05cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>13</ZIndex>
+              <Visibility>
+                <Hidden>=IiF(IsNothing(Fields!ATU_PayNowQRCode.Value) = True, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <Style>
             <Border>

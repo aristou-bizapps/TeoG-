@@ -1,12 +1,12 @@
 /*
 NO      DEV     DATE            DESCRIPTION
 =========================================================================================================================
-1       HS      2026-01-28      Create new "Sales Cr.Memo Line" table extension
+1       HS      2026-02-04      Create new "Item Ledger Entry" table extension
 2                               Add some new fields
 */
 
 //HS.1+
-tableextension 50008 "ATU_Sales Cr.Memo Line" extends "Sales Cr.Memo Line"
+tableextension 50021 "ATU_Item Ledger Entry" extends "Item Ledger Entry"
 {
     fields
     {
@@ -106,6 +106,10 @@ tableextension 50008 "ATU_Sales Cr.Memo Line" extends "Sales Cr.Memo Line"
         field(50024; "ATU_Port Of Discharge"; Text[50])
         {
             Caption = 'Port of Discharge';
+        }
+        field(50025; "ATU_Code No."; Code[20])
+        {
+            Caption = 'Code No.';
         }
         //HS.2-
     }

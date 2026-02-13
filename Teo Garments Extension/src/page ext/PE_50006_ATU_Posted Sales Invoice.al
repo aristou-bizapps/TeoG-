@@ -4,6 +4,7 @@ NO      DEV     DATE            DESCRIPTION
 1       HS      2026-01-20      Create new "Posted Sales Invoice" page extension
 2                               Add new action to print the "Debit Note" report
 3                               Pull out "Remarks" field
+4               2026-02-04      Pull out "Purchase Order No.", "Vendor Invoice No." field
 */
 
 //HS.1+
@@ -13,6 +14,16 @@ pageextension 50006 "ATU_Posted Sales Invoice" extends "Posted Sales Invoice"
     {
         addlast(General)
         {
+            //HS.4+
+            field("ATU_Purchase Order No."; Rec."ATU_Purchase Order No.")
+            {
+                ApplicationArea = All;
+            }
+            field("ATU_Vendor Invoice No."; Rec."ATU_Vendor Invoice No.")
+            {
+                ApplicationArea = All;
+            }
+            //HS.4-
             //HS.3+
             field(ATU_Remarks; Rec.ATU_Remarks)
             {
