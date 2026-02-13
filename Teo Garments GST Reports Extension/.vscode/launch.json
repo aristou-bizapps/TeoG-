@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "TGC Sandbox",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "ATU_270126_SB",
+            "breakOnError": "All",
+            "launchBrowser": false,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "d07ce726-303a-44a3-be72-6e81436a9868",
+            "schemaUpdateMode": "Synchronize"
+        }
+    ]
+}
