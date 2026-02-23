@@ -125,6 +125,7 @@ codeunit 50002 "ATU_Function Management"
     begin
         ATU_lInventorySetup.Get();
         ATU_lInventorySetup.TestField("ATU_Def Gen Prod Posting Group");
+        ATU_lInventorySetup.TestField("ATU_Def VAT Prod Posting Group");
 
         ATU_pExcelBuffer.Reset();
         if ATU_pExcelBuffer.FindLast() then
@@ -145,6 +146,7 @@ codeunit 50002 "ATU_Function Management"
                 ATU_lItem.Validate(Description, ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 8));
                 ATU_lItem.Validate("Base Unit of Measure", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
                 ATU_lItem.Validate("Gen. Prod. Posting Group", ATU_lInventorySetup."ATU_Def Gen Prod Posting Group");
+                ATU_lItem.Validate("VAT Prod. Posting Group", ATU_lInventorySetup."ATU_Def VAT Prod Posting Group");
                 ATU_lItem.Validate("Assembly Policy", ATU_lItem."Assembly Policy"::"Assemble-to-Stock");
                 ATU_lItem.Validate("Replenishment System", ATU_lItem."Replenishment System"::Purchase);
                 ATU_lItem.Validate("Vendor No.", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4));

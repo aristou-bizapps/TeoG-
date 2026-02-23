@@ -37,12 +37,12 @@ report 50003 "ATU_Tax Invoice"
             column(ATU_InvoiceNo; "No.") { }
             column(ATU_Date; Format("Posting Date", 0, '<Day,2>-<Month Text,3>-<Year4>')) { }
             column(ATU_SalesTerm; "Payment Terms Code") { }
-            column(ATU_DateOfExport; '') { }
-            column(ATU_CountryOfOrigin; '') { }
-            column(ATU_PortOfLoading; '') { }
-            column(ATU_PortOfDischarge; '') { }
-            column(ATU_FinalDestination; '') { }
-            column(ATU_PONo; "External Document No.") { }
+            column(ATU_DateOfExport; Format(ATU_gDateOfExport, 0, '<Day,2>-<Month Text,3>-<Year4>')) { }
+            column(ATU_CountryOfOrigin; ATU_gCountryOfOrigin) { }
+            column(ATU_PortOfLoading; ATU_gPortOfLoading) { }
+            column(ATU_PortOfDischarge; ATU_gPortOfDischarge) { }
+            column(ATU_FinalDestination; ATU_gFinalDestination) { }
+            column(ATU_PONo; "ATU_Purchase Order No.") { }
             column(ATU_SubTotalAmt; Amount) { }
             column(ATU_DiscountAmt; ATU_gReportMgmt.ATU_GetDiscountAmount("Sales Invoice Header")) { }
             column(ATU_TaxAmt; "Amount Including VAT" - Amount) { }
@@ -85,6 +85,7 @@ report 50003 "ATU_Tax Invoice"
                 ATU_gReportMgmt.ATU_GetCompanyAddress(ATU_gCompanyInfo, ATU_gCompanyAddress);
                 ATU_gReportMgmt.ATU_GetSalesBillToAddress("Sales Invoice Header", ATU_gBillToAddress);
                 ATU_gReportMgmt.ATU_GetSalesShipToAddress("Sales Invoice Header", ATU_gShipToAddress);
+                ATU_gReportMgmt.ATU_GetTaxInvoiceInfo("No.", ATU_gDateOfExport, ATU_gCountryOfOrigin, ATU_gPortOfLoading, ATU_gPortOfDischarge, ATU_gFinalDestination);
             end;
         }
     }
@@ -149,5 +150,8 @@ report 50003 "ATU_Tax Invoice"
         ATU_gRunningNoFormat: Text[5];
         ATU_gIsTGCCompany: Boolean;
         ATU_gReportCaption: Text[20];
+        ATU_gDateOfExport: Date;
+        ATU_gCountryOfOrigin, ATU_gFinalDestination : Code[50];
+        ATU_gPortOfLoading, ATU_gPortOfDischarge : Text[50];
 }
 //HS.1-

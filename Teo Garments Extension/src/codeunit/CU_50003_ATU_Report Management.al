@@ -587,5 +587,55 @@ codeunit 50003 "ATU_Report Management"
 
         exit('');
     end;
+
+    procedure ATU_GetPOBuyer(ATU_pSONo: Code[20]): Text[100]
+    var
+        ATU_lSalesHdr: Record "Sales Header";
+    begin
+        ATU_lSalesHdr.Reset();
+        if ATU_lSalesHdr.Get(ATU_lSalesHdr."Document Type"::Order, ATU_pSONo) then
+            exit(ATU_lSalesHdr."Sell-to Customer Name");
+
+        exit('');
+    end;
+
+    procedure ATU_GetPOSeason(ATU_pSONo: Code[20]): Code[20]
+    var
+        ATU_lSalesHdr: Record "Sales Header";
+        ATU_lSalesLine: Record "Sales Line";
+    begin
+        ATU_lSalesHdr.Reset();
+        if ATU_lSalesHdr.Get(ATU_lSalesHdr."Document Type"::Order, ATU_pSONo) then begin
+            ATU_lSalesLine.Reset();
+            ATU_lSalesLine.SetRange("Document Type", ATU_lSalesHdr."Document Type");
+            ATU_lSalesLine.SetRange("Document No.", ATU_lSalesHdr."No.");
+            ATU_lSalesLine.SetFilter(ATU_Season, '<>%1', '');
+            if ATU_lSalesLine.FindFirst() then
+                exit(ATU_lSalesLine.ATU_Season);
+        end;
+
+        exit('');
+    end;
+
+    procedure ATU_GetTaxInvoiceInfo(ATU_pInvNo: Code[20]; var ATU_pDateOfExport: Date; var ATU_pCountryOfOrigin: Code[50]; var ATU_pPortOfLoading: Text[50]; var ATU_pPortOfDischarge: Text[50]; var ATU_pFinalDestination: Code[50])
+    var
+        ATU_lSalesInvLine: Record "Sales Invoice Line";
+    begin
+        Clear(ATU_pDateOfExport);
+        Clear(ATU_pCountryOfOrigin);
+        Clear(ATU_pPortOfLoading);
+        Clear(ATU_pPortOfDischarge);
+        Clear(ATU_pFinalDestination);
+
+        ATU_lSalesInvLine.Reset();
+        ATU_lSalesInvLine.SetRange("Document No.", ATU_pInvNo);
+        if ATU_lSalesInvLine.FindFirst() then begin
+            ATU_pDateOfExport := ATU_lSalesInvLine."ATU_Factory Shipped Date";
+            ATU_pCountryOfOrigin := ATU_lSalesInvLine."ATU_Country Of Origin";
+            ATU_pPortOfLoading := ATU_lSalesInvLine."ATU_Port Of Loading";
+            ATU_pPortOfDischarge := ATU_lSalesInvLine."ATU_Port Of Discharge";
+            ATU_pFinalDestination := ATU_lSalesInvLine."ATU_Country Of Destination";
+        end;
+    end;
 }
 //HS.1-

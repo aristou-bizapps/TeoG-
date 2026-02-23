@@ -46,8 +46,8 @@ report 50004 "ATU_Purchase Order Material"
             column(ATU_DocumentNo; "No.") { }
             column(ATU_Date; Format("Posting Date", 0, '<Day,2>/<Month,2>/<Year4>')) { }
             column(ATU_RevisionDateRefNo; '') { }
-            column(ATU_Buyer; '') { }
-            column(ATU_SeasonSuppRef; '') { }
+            column(ATU_Buyer; ATU_gReportMgmt.ATU_GetPOBuyer("ATU_Sales Order No.")) { }
+            column(ATU_SeasonSuppRef; ATU_gReportMgmt.ATU_GetPOSeason("ATU_Sales Order No.")) { }
             column(ATU_DeliveryDate; Format("Expected Receipt Date", 0, '<Day,2>/<Month,2>/<Year4>')) { }
             column(ATU_Currency; ATU_gReportMgmt.ATU_GetCurrencyCode("Currency Code")) { }
             column(ATU_TradeTerm; '') { }
