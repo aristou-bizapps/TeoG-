@@ -1638,7 +1638,7 @@ Cstr(Fields!ATU_ReportCaption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.1cm</Top>
+                  <Top>0.225cm</Top>
                   <Left>0.1cm</Left>
                   <Height>0.45cm</Height>
                   <Width>1.5cm</Width>
@@ -1667,7 +1667,7 @@ Cstr(Fields!ATU_ReportCaption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.1cm</Top>
+                  <Top>0.225cm</Top>
                   <Left>1.6cm</Left>
                   <Height>0.45cm</Height>
                   <Width>7cm</Width>
