@@ -4,6 +4,7 @@ NO      DEV     DATE            DESCRIPTION
 1       HS      2026-01-20      Create new "Sales Invoice" page extension
 2                               Add new action to print the "Unposted Tax Invoice" for THL Company
 3                               Pull out "Remarks" field
+4               2026-03-02      Hide the "Work Description" field
 */
 
 //HS.1+
@@ -21,6 +22,12 @@ pageextension 50002 "ATU_Sales Invoice" extends "Sales Invoice"
             }
             //HS.3-
         }
+        //HS.4+
+        modify("Work Description")
+        {
+            Visible = false;
+        }
+        //HS.4-
     }
 
     actions

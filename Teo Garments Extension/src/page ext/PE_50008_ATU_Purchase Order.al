@@ -4,6 +4,7 @@ NO      DEV     DATE            DESCRIPTION
 1       HS      2026-01-20      Create new "Purchase Order" page extension
 2                               Add new action to print the "Purchase Order" report
 3               2026-02-03      Pull out "Sales Order No.", "Remarks" field
+4               2026-03-02      Make "Posting Date" and "Document Date" as non-editable
 */
 
 //HS.1+
@@ -25,6 +26,16 @@ pageextension 50008 "ATU_Purchase Order" extends "Purchase Order"
             }
             //HS.3-
         }
+        //HS.4+
+        modify("Posting Date")
+        {
+            Editable = false;
+        }
+        modify("Document Date")
+        {
+            Editable = false;
+        }
+        //HS.4-
     }
 
     actions

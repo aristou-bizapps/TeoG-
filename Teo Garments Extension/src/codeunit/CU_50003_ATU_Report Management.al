@@ -231,6 +231,36 @@ codeunit 50003 "ATU_Report Management"
         end;
     end;
 
+    procedure ATU_GetPurchaseBillToAddress(ATU_pCompanyInfo: Record "Company Information"; var ATU_pBillToAddress: array[6] of Text[150])
+    var
+        ATU_lBillToAddrList: List of [Text[150]];
+        ATU_li: Integer;
+        ATU_lTel: Label 'Tel: %1';
+    begin
+        Clear(ATU_pBillToAddress);
+
+        if ATU_pCompanyInfo.Name <> '' then
+            ATU_lBillToAddrList.Add(ATU_pCompanyInfo.Name);
+        if ATU_pCompanyInfo.Address <> '' then
+            ATU_lBillToAddrList.Add(ATU_pCompanyInfo.Address);
+        if ATU_pCompanyInfo."Address 2" <> '' then
+            ATU_lBillToAddrList.Add(ATU_pCompanyInfo."Address 2");
+        if ATU_pCompanyInfo.City <> '' then
+            ATU_lBillToAddrList.Add(StrSubstNo('%1 %2', ATU_pCompanyInfo.City, ATU_pCompanyInfo."Post Code"))
+        else
+            ATU_lBillToAddrList.Add(ATU_pCompanyInfo."Post Code");
+        if ATU_pCompanyInfo."Country/Region Code" <> '' then
+            ATU_lBillToAddrList.Add(ATU_GetCountryName(ATU_pCompanyInfo."Country/Region Code"));
+        if ATU_pCompanyInfo."Phone No." <> '' then
+            ATU_lBillToAddrList.Add(StrSubstNo(ATU_lTel, ATU_pCompanyInfo."Phone No."));
+
+        if ATU_lBillToAddrList.Count > 0 then begin
+            for ATU_li := 1 to ATU_lBillToAddrList.Count do begin
+                ATU_pBillToAddress[ATU_li] := ATU_lBillToAddrList.Get(ATU_li);
+            end;
+        end;
+    end;
+
     procedure ATU_GetCustomerAddress(ATU_pCustomerNo: Code[20]; var ATU_pCustomerAddress: array[7] of Text[150])
     var
         ATU_lCustomer: Record Customer;
@@ -569,6 +599,24 @@ codeunit 50003 "ATU_Report Management"
         ATU_lApplnAmountToApply := ATU_lCurrExchRate.ApplnExchangeAmtFCYToFCY(ATU_pApplnDate, ATU_pCurrencyCode, ATU_lApplnCurrencyCode, ATU_pAmountToApply, ATU_lValidExchRate);
 
         exit(ATU_lApplnAmountToApply);
+    end;
+
+    procedure ATU_GetPOIssuedBy(ATU_pSystemCreatedBy: Guid): Code[50]
+    var
+        ATU_lUser: Record User;
+    begin
+        ATU_lUser.Reset();
+        if ATU_lUser.Get(ATU_pSystemCreatedBy) then
+            exit(ATU_lUser."User Name");
+    end;
+
+    procedure ATU_GetPOTradeTerm(ATU_pVendorNo: Code[20]): Code[10]
+    var
+        ATU_lVendor: Record Vendor;
+    begin
+        ATU_lVendor.Reset();
+        if ATU_lVendor.Get(ATU_pVendorNo) then
+            exit(ATU_lVendor."Payment Terms Code");
     end;
 
     procedure ATU_GetPOApprovedBy(ATU_pPurchHdr: Record "Purchase Header"): Code[50]

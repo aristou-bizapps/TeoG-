@@ -39,7 +39,7 @@ codeunit 50002 "ATU_Function Management"
     var
         ATU_lSalesHeader: Record "Sales Header";
         ATU_li, ATU_lj, ATU_lRowNo, ATU_lMaxRowNo : Integer;
-        ATU_lCustomerNo, ATU_lVendorNo : Code[20];
+        ATU_lCustomerNo, ATU_lVendorNo, ATU_lBusinessUnit : Code[20];
         ATU_lListOfCustomerNo, ATU_lListOfVendorNo : List of [Code[20]];
         ATU_lIsItemCreated: Boolean;
     begin
@@ -50,10 +50,15 @@ codeunit 50002 "ATU_Function Management"
             ATU_lMaxRowNo := ATU_pExcelBuffer."Row No.";
 
         for ATU_lRowNo := 2 to ATU_lMaxRowNo do begin
-            Clear(ATU_lCustomerNo);
-            ATU_lCustomerNo := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2);
-            if not ATU_lListOfCustomerNo.Contains(ATU_lCustomerNo) then
-                ATU_lListOfCustomerNo.Add(ATU_lCustomerNo);
+            Clear(ATU_lBusinessUnit);
+            ATU_lBusinessUnit := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 1);
+
+            if ATU_lBusinessUnit <> '' then begin
+                Clear(ATU_lCustomerNo);
+                ATU_lCustomerNo := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2);
+                if not ATU_lListOfCustomerNo.Contains(ATU_lCustomerNo) then
+                    ATU_lListOfCustomerNo.Add(ATU_lCustomerNo);
+            end;
         end;
 
         if ATU_lListOfCustomerNo.Count > 0 then begin
@@ -61,11 +66,16 @@ codeunit 50002 "ATU_Function Management"
                 Clear(ATU_lListOfVendorNo);
 
                 for ATU_lRowNo := 2 to ATU_lMaxRowNo do begin
-                    if ATU_lListOfCustomerNo.Get(ATU_li) = ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2) then begin
-                        Clear(ATU_lVendorNo);
-                        ATU_lVendorNo := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4);
-                        if not ATU_lListOfVendorNo.Contains(ATU_lVendorNo) then
-                            ATU_lListOfVendorNo.Add(ATU_lVendorNo);
+                    Clear(ATU_lBusinessUnit);
+                    ATU_lBusinessUnit := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 1);
+
+                    if ATU_lBusinessUnit <> '' then begin
+                        if ATU_lListOfCustomerNo.Get(ATU_li) = ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2) then begin
+                            Clear(ATU_lVendorNo);
+                            ATU_lVendorNo := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4);
+                            if not ATU_lListOfVendorNo.Contains(ATU_lVendorNo) then
+                                ATU_lListOfVendorNo.Add(ATU_lVendorNo);
+                        end;
                     end;
                 end;
 
@@ -121,7 +131,7 @@ codeunit 50002 "ATU_Function Management"
         ATU_lInventorySetup: Record "Inventory Setup";
         ATU_lItem: Record Item;
         ATU_lRowNo, ATU_lMaxRowNo : Integer;
-        ATU_lItemNo: Code[20];
+        ATU_lItemNo, ATU_lBusinessUnit : Code[20];
     begin
         ATU_lInventorySetup.Get();
         ATU_lInventorySetup.TestField("ATU_Def Gen Prod Posting Group");
@@ -132,26 +142,31 @@ codeunit 50002 "ATU_Function Management"
             ATU_lMaxRowNo := ATU_pExcelBuffer."Row No.";
 
         for ATU_lRowNo := 2 to ATU_lMaxRowNo do begin
-            Clear(ATU_lItemNo);
-            ATU_lItemNo := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 7);
+            Clear(ATU_lBusinessUnit);
+            ATU_lBusinessUnit := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 1);
 
-            ATU_lItem.Reset();
-            if not ATU_lItem.Get(ATU_lItemNo) then begin
+            if ATU_lBusinessUnit <> '' then begin
+                Clear(ATU_lItemNo);
+                ATU_lItemNo := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 7);
+
                 ATU_lItem.Reset();
-                ATU_lItem.Init();
-                ATU_lItem.Validate("No.", ATU_lItemNo);
-                ATU_lItem.Insert(true);
+                if not ATU_lItem.Get(ATU_lItemNo) then begin
+                    ATU_lItem.Reset();
+                    ATU_lItem.Init();
+                    ATU_lItem.Validate("No.", ATU_lItemNo);
+                    ATU_lItem.Insert(true);
 
-                ATU_lItem.Validate(Type, ATU_lItem.Type::"Non-Inventory");
-                ATU_lItem.Validate(Description, ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 8));
-                ATU_lItem.Validate("Base Unit of Measure", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
-                ATU_lItem.Validate("Gen. Prod. Posting Group", ATU_lInventorySetup."ATU_Def Gen Prod Posting Group");
-                ATU_lItem.Validate("VAT Prod. Posting Group", ATU_lInventorySetup."ATU_Def VAT Prod Posting Group");
-                ATU_lItem.Validate("Assembly Policy", ATU_lItem."Assembly Policy"::"Assemble-to-Stock");
-                ATU_lItem.Validate("Replenishment System", ATU_lItem."Replenishment System"::Purchase);
-                ATU_lItem.Validate("Vendor No.", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4));
-                ATU_lItem.Validate("Purch. Unit of Measure", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
-                ATU_lItem.Modify(true);
+                    ATU_lItem.Validate(Type, ATU_lItem.Type::"Non-Inventory");
+                    ATU_lItem.Validate(Description, ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 8));
+                    ATU_lItem.Validate("Base Unit of Measure", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
+                    ATU_lItem.Validate("Gen. Prod. Posting Group", ATU_lInventorySetup."ATU_Def Gen Prod Posting Group");
+                    ATU_lItem.Validate("VAT Prod. Posting Group", ATU_lInventorySetup."ATU_Def VAT Prod Posting Group");
+                    ATU_lItem.Validate("Assembly Policy", ATU_lItem."Assembly Policy"::"Assemble-to-Stock");
+                    ATU_lItem.Validate("Replenishment System", ATU_lItem."Replenishment System"::Purchase);
+                    ATU_lItem.Validate("Vendor No.", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4));
+                    ATU_lItem.Validate("Purch. Unit of Measure", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
+                    ATU_lItem.Modify(true);
+                end;
             end;
         end;
 
@@ -162,35 +177,41 @@ codeunit 50002 "ATU_Function Management"
     var
         ATU_lSalesLine: Record "Sales Line";
         ATU_lRowNo, ATU_lMaxRowNo, ATU_lLineNo : Integer;
+        ATU_lBusinessUnit: Code[20];
     begin
         ATU_pExcelBuffer.Reset();
         if ATU_pExcelBuffer.FindLast() then
             ATU_lMaxRowNo := ATU_pExcelBuffer."Row No.";
 
         for ATU_lRowNo := 2 to ATU_lMaxRowNo do begin
-            if (ATU_pSalesHeader."Sell-to Customer No." = ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2)) and
+            Clear(ATU_lBusinessUnit);
+            ATU_lBusinessUnit := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 1);
+
+            if ATU_lBusinessUnit <> '' then begin
+                if (ATU_pSalesHeader."Sell-to Customer No." = ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2)) and
                 (ATU_pVendorNo = ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4)) then begin
-                ATU_lLineNo += 10000;
+                    ATU_lLineNo += 10000;
 
-                ATU_lSalesLine.Reset();
-                ATU_lSalesLine.Init();
-                ATU_lSalesLine."Document Type" := ATU_pSalesHeader."Document Type";
-                ATU_lSalesLine."Document No." := ATU_pSalesHeader."No.";
-                ATU_lSalesLine."Line No." := ATU_lLineNo;
-                ATU_lSalesLine.Validate("Bill-to Customer No.", ATU_pSalesHeader."Bill-to Customer No.");
-                ATU_lSalesLine.Validate("Sell-to Customer No.", ATU_pSalesHeader."Sell-to Customer No.");
-                ATU_lSalesLine.Validate(Type, ATU_lSalesLine.Type::Item);
-                ATU_lSalesLine.Validate("No.", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 7));
-                Evaluate(ATU_lSalesLine.Quantity, ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 17));
-                ATU_lSalesLine.Validate(Quantity);
-                ATU_lSalesLine.Validate("Unit of Measure Code", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
-                ATU_lSalesLine.Validate("Currency Code", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 19));
-                Evaluate(ATU_lSalesLine."Unit Price", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 20));
-                ATU_lSalesLine.Validate("Unit Price");
-                ATU_lSalesLine.Insert(true);
+                    ATU_lSalesLine.Reset();
+                    ATU_lSalesLine.Init();
+                    ATU_lSalesLine."Document Type" := ATU_pSalesHeader."Document Type";
+                    ATU_lSalesLine."Document No." := ATU_pSalesHeader."No.";
+                    ATU_lSalesLine."Line No." := ATU_lLineNo;
+                    ATU_lSalesLine.Validate("Bill-to Customer No.", ATU_pSalesHeader."Bill-to Customer No.");
+                    ATU_lSalesLine.Validate("Sell-to Customer No.", ATU_pSalesHeader."Sell-to Customer No.");
+                    ATU_lSalesLine.Validate(Type, ATU_lSalesLine.Type::Item);
+                    ATU_lSalesLine.Validate("No.", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 7));
+                    Evaluate(ATU_lSalesLine.Quantity, ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 17));
+                    ATU_lSalesLine.Validate(Quantity);
+                    ATU_lSalesLine.Validate("Unit of Measure Code", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 18));
+                    ATU_lSalesLine.Validate("Currency Code", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 19));
+                    Evaluate(ATU_lSalesLine."Unit Price", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 20));
+                    ATU_lSalesLine.Validate("Unit Price");
+                    ATU_lSalesLine.Insert(true);
 
-                ATU_ValidateExcelData(ATU_pExcelBuffer, ATU_lSalesLine, ATU_lRowNo);
-                ATU_lSalesLine.Modify(true);
+                    ATU_ValidateExcelData(ATU_pExcelBuffer, ATU_lSalesLine, ATU_lRowNo);
+                    ATU_lSalesLine.Modify(true);
+                end;
             end;
         end;
     end;
@@ -202,7 +223,7 @@ codeunit 50002 "ATU_Function Management"
         ATU_lCustomer: Record Customer;
         ATU_lVendor: Record Vendor;
         ATU_lRowNo, ATU_lMaxRowNo : Integer;
-        ATU_lData: Code[20];
+        ATU_lData, ATU_lBusinessUnit : Code[20];
         ATU_lDataMissingErr: Label 'The %1 is missing in line number %2 of Excel.\\Please check again.';
         ATU_lDataNotExist: Label 'The %1 %2 not existed.\\Please check again.';
     begin
@@ -214,45 +235,45 @@ codeunit 50002 "ATU_Function Management"
             ATU_lMaxRowNo := ATU_pExcelBuffer."Row No.";
 
         for ATU_lRowNo := 2 to ATU_lMaxRowNo do begin
-            //Business Unit
-            Clear(ATU_lData);
-            ATU_lData := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 1);
+            Clear(ATU_lBusinessUnit);
+            ATU_lBusinessUnit := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 1);
 
-            if ATU_lData = '' then
-                Error(StrSubstNo(ATU_lDataMissingErr, 'Business Unit', ATU_lRowNo));
+            /* if ATU_lData = '' then
+                Error(StrSubstNo(ATU_lDataMissingErr, 'Business Unit', ATU_lRowNo)); */
 
-            ATU_lDimValue.Reset();
-            if not ATU_lDimValue.Get(ATU_lGLSetup."Global Dimension 1 Code", ATU_lData) then
-                Error(StrSubstNo(ATU_lDataNotExist, 'Business Unit Code', ATU_lData));
+            if ATU_lBusinessUnit <> '' then begin
+                //Business Unit
+                ATU_lDimValue.Reset();
+                if not ATU_lDimValue.Get(ATU_lGLSetup."Global Dimension 1 Code", ATU_lBusinessUnit) then
+                    Error(StrSubstNo(ATU_lDataNotExist, 'Business Unit Code', ATU_lBusinessUnit));
 
-            //Buyer No.
-            Clear(ATU_lData);
-            ATU_lData := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2);
+                //Buyer No.
+                Clear(ATU_lData);
+                ATU_lData := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 2);
 
-            if ATU_lData = '' then
-                Error(StrSubstNo(ATU_lDataMissingErr, 'Buyer Code', ATU_lRowNo));
+                if ATU_lData = '' then
+                    Error(StrSubstNo(ATU_lDataMissingErr, 'Buyer Code', ATU_lRowNo));
 
-            ATU_lCustomer.Reset();
-            if not ATU_lCustomer.Get(ATU_lData) then
-                Error(StrSubstNo(ATU_lDataNotExist, 'Customer', ATU_lData));
+                ATU_lCustomer.Reset();
+                if not ATU_lCustomer.Get(ATU_lData) then
+                    Error(StrSubstNo(ATU_lDataNotExist, 'Customer', ATU_lData));
 
-            //Supplier No.
-            Clear(ATU_lData);
-            ATU_lData := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4);
+                //Supplier No.
+                Clear(ATU_lData);
+                ATU_lData := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_lRowNo, 4);
 
-            if ATU_lData = '' then
-                Error(StrSubstNo(ATU_lDataMissingErr, 'Supplier Code', ATU_lRowNo));
+                if ATU_lData = '' then
+                    Error(StrSubstNo(ATU_lDataMissingErr, 'Supplier Code', ATU_lRowNo));
 
-            ATU_lVendor.Reset();
-            if not ATU_lVendor.Get(ATU_lData) then
-                Error(StrSubstNo(ATU_lDataNotExist, 'Vendor', ATU_lData));
+                ATU_lVendor.Reset();
+                if not ATU_lVendor.Get(ATU_lData) then
+                    Error(StrSubstNo(ATU_lDataNotExist, 'Vendor', ATU_lData));
+            end;
         end;
     end;
 
     local procedure ATU_ValidateExcelData(var ATU_pExcelBuffer: Record "Excel Buffer" temporary; var ATU_pSalesLine: Record "Sales Line"; ATU_pRowNo: Integer)
     var
-        ATU_lCustomer: Record Customer;
-        ATU_lVendor: Record Vendor;
         ATU_lGender: Record ATU_Gender;
         ATU_lDivision: Record ATU_Division;
         ATU_lFactoryName: Record "ATU_Factory Name";
@@ -263,30 +284,16 @@ codeunit 50002 "ATU_Function Management"
         ATU_lNotFoundDataError: Label 'The value %1 not exist in the %2.\\Please check again.';
     begin
         //Business Unit
-        Clear(ATU_lDataCode);
-        ATU_lDataCode := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 1);
-        ATU_pSalesLine.Validate("Shortcut Dimension 1 Code", ATU_lDataCode);
+        ATU_pSalesLine.Validate("Shortcut Dimension 1 Code", ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 1));
 
         //Buyer No.
-        Clear(ATU_lDataCode);
-        ATU_lDataCode := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 2);
-        ATU_lCustomer.Reset();
-        if not ATU_lCustomer.Get(ATU_lDataCode) then
-            Error(StrSubstNo(ATU_lNotFoundDataError, ATU_lDataCode, ATU_lCustomer.TableCaption));
-
-        ATU_pSalesLine."ATU_Buyer No." := ATU_lDataCode;
+        ATU_pSalesLine."ATU_Buyer No." := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 2);
 
         //Buyer Name
         ATU_pSalesLine."ATU_Buyer Name" := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 3);
 
         //Supplier No.
-        Clear(ATU_lDataCode);
-        ATU_lDataCode := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 4);
-        ATU_lVendor.Reset();
-        if not ATU_lVendor.Get(ATU_lDataCode) then
-            Error(StrSubstNo(ATU_lNotFoundDataError, ATU_lDataCode, ATU_lVendor.TableCaption));
-
-        ATU_pSalesLine."ATU_Supplier No." := ATU_lDataCode;
+        ATU_pSalesLine."ATU_Supplier No." := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 4);
 
         //Supplier Name
         ATU_pSalesLine."ATU_Supplier Name" := ATU_GetValueAtCell(ATU_pExcelBuffer, ATU_pRowNo, 5);

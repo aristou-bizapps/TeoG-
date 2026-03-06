@@ -5,6 +5,7 @@ NO      DEV     DATE            DESCRIPTION
 2                               Add new action to print the "Debit Note" report
 3                               Pull out "Remarks" field
 4               2026-02-04      Pull out "Purchase Order No.", "Vendor Invoice No." field
+5               2026-03-02      Pull out "Manual Invoice No." field
 */
 
 //HS.1+
@@ -24,6 +25,12 @@ pageextension 50006 "ATU_Posted Sales Invoice" extends "Posted Sales Invoice"
                 ApplicationArea = All;
             }
             //HS.4-
+            //HS.5+
+            field("ATU_Manual Invoice No."; Rec."ATU_Manual Invoice No.")
+            {
+                ApplicationArea = All;
+            }
+            //HS.5-
             //HS.3+
             field(ATU_Remarks; Rec.ATU_Remarks)
             {

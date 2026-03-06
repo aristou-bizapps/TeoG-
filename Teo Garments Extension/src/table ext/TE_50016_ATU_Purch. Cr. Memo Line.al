@@ -21,7 +21,7 @@ tableextension 50016 "ATU_Purch. Cr. Memo Line" extends "Purch. Cr. Memo Line"
         }
         field(50003; "ATU_Code No."; Code[20])
         {
-            Caption = 'Code No.';
+            Caption = 'Style No.';
         }
         field(50004; "ATU_Factory Shipped Date"; Date)
         {

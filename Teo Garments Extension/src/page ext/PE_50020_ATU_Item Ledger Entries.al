@@ -13,6 +13,14 @@ pageextension 50020 "ATU_Item Ledger Entries" extends "Item Ledger Entries"
         //HS.2+
         addafter("Location Code")
         {
+            field("ATU_Sales Order No."; Rec."ATU_Sales Order No.")
+            {
+                ApplicationArea = All;
+            }
+            field("ATU_Purchase Order No."; Rec."ATU_Purchase Order No.")
+            {
+                ApplicationArea = All;
+            }
             field("ATU_Buyer No."; Rec."ATU_Buyer No.")
             {
                 ApplicationArea = All;

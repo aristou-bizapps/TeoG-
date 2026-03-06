@@ -21,7 +21,7 @@ tableextension 50017 "ATU_Purch. Rcpt. Line" extends "Purch. Rcpt. Line"
         }
         field(50003; "ATU_Code No."; Code[20])
         {
-            Caption = 'Code No.';
+            Caption = 'Style No.';
         }
         field(50004; "ATU_Factory Shipped Date"; Date)
         {

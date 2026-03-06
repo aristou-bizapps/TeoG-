@@ -4,6 +4,7 @@ NO      DEV     DATE            DESCRIPTION
 1       HS      2026-01-20      Create new "Sales Cr.Memo Header" table extension
 2                               Add new "Remarks" field
 3               2026-02-03      Add new "Purchase Order No.", "Vendor Invoice No." field
+4               2026-03-02      Add new "Manual Invoice No." field
 */
 
 //HS.1+
@@ -27,6 +28,12 @@ tableextension 50004 "ATU_Sales Cr.Memo Header" extends "Sales Cr.Memo Header"
             Caption = 'Vendor Invoice No.';
         }
         //HS.3-
+        //HS.4+
+        field(50004; "ATU_Manual Invoice No."; Code[20])
+        {
+            Caption = 'Manual Invoice No.';
+        }
+        //HS.4-
     }
 }
 //HS.1-

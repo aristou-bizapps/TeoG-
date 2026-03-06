@@ -39,7 +39,7 @@ tableextension 50008 "ATU_Sales Cr.Memo Line" extends "Sales Cr.Memo Line"
         {
             Caption = 'Shipment Buyer Order No.';
         }
-        field(50008; "ATU_Fiber Content"; Text[50])
+        field(50008; "ATU_Fiber Content"; Text[200])
         {
             Caption = 'Fiber Content';
         }
@@ -49,7 +49,7 @@ tableextension 50008 "ATU_Sales Cr.Memo Line" extends "Sales Cr.Memo Line"
         }
         field(50010; ATU_Dim; Code[50])
         {
-            Caption = 'Dim';
+            Caption = 'Dim/Size';
         }
         field(50011; ATU_Division; Text[50])
         {

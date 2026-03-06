@@ -21,7 +21,7 @@ tableextension 50015 "ATU_Purch. Inv. Line" extends "Purch. Inv. Line"
         }
         field(50003; "ATU_Code No."; Code[20])
         {
-            Caption = 'Code No.';
+            Caption = 'Style No.';
         }
         field(50004; "ATU_Factory Shipped Date"; Date)
         {

@@ -39,7 +39,7 @@ tableextension 50021 "ATU_Item Ledger Entry" extends "Item Ledger Entry"
         {
             Caption = 'Shipment Buyer Order No.';
         }
-        field(50008; "ATU_Fiber Content"; Text[50])
+        field(50008; "ATU_Fiber Content"; Text[200])
         {
             Caption = 'Fiber Content';
         }
@@ -110,6 +110,14 @@ tableextension 50021 "ATU_Item Ledger Entry" extends "Item Ledger Entry"
         field(50025; "ATU_Code No."; Code[20])
         {
             Caption = 'Code No.';
+        }
+        field(50026; "ATU_Sales Order No."; Code[20])
+        {
+            Caption = 'Sales Order No.';
+        }
+        field(50027; "ATU_Purchase Order No."; Code[20])
+        {
+            Caption = 'Purchase Order No.';
         }
         //HS.2-
     }

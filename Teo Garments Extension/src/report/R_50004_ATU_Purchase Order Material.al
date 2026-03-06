@@ -42,6 +42,12 @@ report 50004 "ATU_Purchase Order Material"
             column(ATU_PayToAddr4; ATU_gPayToAddress[4]) { }
             column(ATU_PayToAddr5; ATU_gPayToAddress[5]) { }
             column(ATU_PayToAddr6; ATU_gPayToAddress[6]) { }
+            column(ATU_BillToAddr1; ATU_gBillToAddress[1]) { }
+            column(ATU_BillToAddr2; ATU_gBillToAddress[2]) { }
+            column(ATU_BillToAddr3; ATU_gBillToAddress[3]) { }
+            column(ATU_BillToAddr4; ATU_gBillToAddress[4]) { }
+            column(ATU_BillToAddr5; ATU_gBillToAddress[5]) { }
+            column(ATU_BillToAddr6; ATU_gBillToAddress[6]) { }
             column(ATU_IsPOPendingApproval; ATU_gReportMgmt.ATU_IsPOPendingApproval(Status)) { }
             column(ATU_DocumentNo; "No.") { }
             column(ATU_Date; Format("Posting Date", 0, '<Day,2>/<Month,2>/<Year4>')) { }
@@ -50,13 +56,14 @@ report 50004 "ATU_Purchase Order Material"
             column(ATU_SeasonSuppRef; ATU_gReportMgmt.ATU_GetPOSeason("ATU_Sales Order No.")) { }
             column(ATU_DeliveryDate; Format("Expected Receipt Date", 0, '<Day,2>/<Month,2>/<Year4>')) { }
             column(ATU_Currency; ATU_gReportMgmt.ATU_GetCurrencyCode("Currency Code")) { }
-            column(ATU_TradeTerm; '') { }
+            column(ATU_TradeTerm; ATU_gReportMgmt.ATU_GetPOTradeTerm("Buy-from Vendor No.")) { }
             column(ATU_SalesTerm; "Payment Terms Code") { }
             column(ATU_NetTotalAmt; Amount) { }
             column(ATU_TaxTotalAmt; "Amount Including VAT" - Amount) { }
             column(ATU_TotalAmt; "Amount Including VAT") { }
             column(ATU_Remarks; ATU_Remarks) { }
-            column(ATU_IssuedBy; UserId) { }
+            // column(ATU_IssuedBy; ATU_gReportMgmt.ATU_GetPOIssuedBy(SystemCreatedBy)) { }
+            column(ATU_IssuedBy; "Purchaser Code") { }
             column(ATU_VerifiedBy; '') { }
             column(ATU_ApprovedBy; ATU_gReportMgmt.ATU_GetPOApprovedBy("Purchase Header")) { }
 
@@ -99,6 +106,7 @@ report 50004 "ATU_Purchase Order Material"
                 ATU_gReportMgmt.ATU_GetPurchaseBuyFromAddress("Purchase Header", ATU_gBuyFromAddress);
                 ATU_gReportMgmt.ATU_GetPurchaseShipToAddress("Purchase Header", ATU_gShipToAddress);
                 ATU_gReportMgmt.ATU_GetPurchasePayToAddress("Purchase Header", ATU_gPayToAddress);
+                ATU_gReportMgmt.ATU_GetPurchaseBillToAddress(ATU_gCompanyInfo, ATU_gBillToAddress);
             end;
         }
     }
@@ -150,6 +158,7 @@ report 50004 "ATU_Purchase Order Material"
         ATU_IssuedByCaption = 'ISSUED BY';
         ATU_VerifiedByCaption = 'VERIFIED BY';
         ATU_ApprovedByCaption = 'APPROVED BY';
+        ATU_DraftCaption = 'DRAFT';
     }
 
     trigger OnInitReport()
@@ -162,7 +171,7 @@ report 50004 "ATU_Purchase Order Material"
         ATU_gReportMgmt: Codeunit "ATU_Report Management";
         ATU_gCompanyInfo: Record "Company Information";
         ATU_gCompanyAddress: array[4] of Text[500];
-        ATU_gBuyFromAddress, ATU_gShipToAddress, ATU_gPayToAddress : array[6] of Text[150];
+        ATU_gBuyFromAddress, ATU_gShipToAddress, ATU_gPayToAddress, ATU_gBillToAddress : array[6] of Text[150];
         ATU_gRunningNo: Integer;
         ATU_gRunningNoFormat: Text[5];
         ATU_gItemNo: Code[20];

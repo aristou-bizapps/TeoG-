@@ -8,12 +8,23 @@ NO      DEV     DATE            DESCRIPTION
 5                               Add function to transfer "Shipment Buyer Order No." from Requisition Line to Purchase Line
 6                               Add function to transfer field from Sales Order and Purchase Order to General Ledger Entries
 7                               Add function to transfer field from Sales Order/Purchase Order Lines to Item Ledger Entry
-8               2026-02-13      Add function to validate "Sales Order No." and "Purchase Order No." can't be blank before posting
+8               2026-02-13      Add function to validate "Sales Order No." can't be blank before posting PO
+9               2026-03-02      Add validate for "Country of Origin" and "Country of Destination" must be mandatory before posting SO
+10                              Add validate for "Payment Term Code" before posting for SI
+11              2026-03-03      Add validate for "Currency Code" must be fill in before posting for Sales and Purchase
+12                              Add function for validate "Shipment Buyer Order No." before convert SO to PO
+13              2026-03-04      Make the "Expected Receipt Date" follow the "Factory Shipped Date" after PO created
+14              2026-03-05      Add validation for "Purchaser Code", "Business Unit" must be mandatory before send approval for PO
+15                              Transfer "Manual Invoice No." from Sales Header to Customer Ledger Entry
+16                              Transfer "Sales Order No." and "Purchase Order No." to Item Ledger Entries
+17              2026-03-06      Change the Details in Notification Email to format "Issued by [Purchaser Code]" for Purchase
 */
 
 //HS.1+
 codeunit 50001 "ATU_Event Subscriber"
 {
+    Permissions = tabledata Item = rimd;
+
     //HS.2+
     [EventSubscriber(ObjectType::Table, Database::"VAT Registration No. Format", 'OnBeforeTest', '', false, false)]
     local procedure ATU_VATRegNoFormat_OnBeforeTest(VATRegNo: Text[20]; CountryCode: Code[10]; Number: Code[20]; TableID: Option; Check: Boolean; var IsHandled: Boolean)
@@ -75,11 +86,20 @@ codeunit 50001 "ATU_Event Subscriber"
         end;
     end;
     //HS.5-
+    //HS.13+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Req. Wksh.-Make Order", 'OnAfterInsertPurchOrderLine', '', false, false)]
+    local procedure ATU_ReqWkshMakeOrder_OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line"; var NextLineNo: Integer; var RequisitionLine: Record "Requisition Line"; var PurchOrderHeader: Record "Purchase Header")
+    begin
+        PurchOrderHeader.Validate("Expected Receipt Date", PurchOrderLine."ATU_Factory Shipped Date");
+        PurchOrderHeader.Modify();
+    end;
+    //HS.13-
     //HS.6+
     [EventSubscriber(ObjectType::Table, Database::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromSalesHeader', '', false, false)]
     local procedure ATU_GenJnlLine_OnAfterCopyGenJnlLineFromSalesHeader(SalesHeader: Record "Sales Header"; var GenJournalLine: Record "Gen. Journal Line");
     begin
         GenJournalLine."ATU_Purchase Order No." := SalesHeader."ATU_Purchase Order No.";
+        GenJournalLine."ATU_Manual Invoice No." := SalesHeader."ATU_Manual Invoice No."; //HS.15
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromPurchHeader', '', false, false)]
@@ -98,6 +118,8 @@ codeunit 50001 "ATU_Event Subscriber"
     //HS.7+
     [EventSubscriber(ObjectType::Table, Database::"Item Journal Line", 'OnAfterCopyItemJnlLineFromSalesLine', '', false, false)]
     local procedure ATU_ItemJnlLine_OnAfterCopyItemJnlLineFromSalesLine(var ItemJnlLine: Record "Item Journal Line"; SalesLine: Record "Sales Line")
+    var
+        ATU_SalesHdr: Record "Sales Header"; //HS.16
     begin
         ItemJnlLine."ATU_Buyer No." := SalesLine."ATU_Buyer No.";
         ItemJnlLine."ATU_Buyer Name" := SalesLine."ATU_Buyer Name";
@@ -123,15 +145,29 @@ codeunit 50001 "ATU_Event Subscriber"
         ItemJnlLine."ATU_Country of Destination" := SalesLine."ATU_Country of Destination";
         ItemJnlLine."ATU_Port of Loading" := SalesLine."ATU_Port of Loading";
         ItemJnlLine."ATU_Port of Discharge" := SalesLine."ATU_Port of Discharge";
+
+        //HS.16+
+        ATU_SalesHdr.Reset();
+        if ATU_SalesHdr.Get(SalesLine."Document Type", SalesLine."Document No.") then
+            ItemJnlLine."ATU_Purchase Order No." := ATU_SalesHdr."ATU_Purchase Order No.";
+        //HS.16-
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Item Journal Line", 'OnAfterCopyItemJnlLineFromPurchLine', '', false, false)]
     local procedure ATU_ItemJnlLine_OnAfterCopyItemJnlLineFromPurchLine(var ItemJnlLine: Record "Item Journal Line"; PurchLine: Record "Purchase Line")
+    var
+        ATU_lPurchHdr: Record "Purchase Header"; //HS.16
     begin
         ItemJnlLine."ATU_Shipment Buyer Order No." := PurchLine."ATU_Customer PO No.";
         ItemJnlLine.ATU_Colour := PurchLine.ATU_Colour;
         ItemJnlLine."ATU_Code No." := PurchLine."ATU_Code No.";
         ItemJnlLine."ATU_Factory Shipped Date" := PurchLine."ATU_Factory Shipped Date";
+
+        //HS.16+
+        ATU_lPurchHdr.Reset();
+        if ATU_lPurchHdr.Get(PurchLine."Document Type", PurchLine."Document No.") then
+            ItemJnlLine."ATU_Sales Order No." := ATU_lPurchHdr."ATU_Sales Order No.";
+        //HS.16-
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', false, false)]
@@ -162,22 +198,116 @@ codeunit 50001 "ATU_Event Subscriber"
         NewItemLedgEntry."ATU_Port of Loading" := ItemJournalLine."ATU_Port of Loading";
         NewItemLedgEntry."ATU_Port of Discharge" := ItemJournalLine."ATU_Port of Discharge";
         NewItemLedgEntry."ATU_Code No." := ItemJournalLine."ATU_Code No.";
+        //HS.16+
+        NewItemLedgEntry."ATU_Sales Order No." := ItemJournalLine."ATU_Sales Order No.";
+        NewItemLedgEntry."ATU_Purchase Order No." := ItemJournalLine."ATU_Purchase Order No.";
+        //HS.16-
     end;
     //HS.7-
-    //HS.8+
+    //HS.9+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnBeforeOnRun', '', false, false)]
     local procedure ATU_SalesPostYesNo_OnBeforeOnRun(var SalesHeader: Record "Sales Header")
+    var
+        ATU_lSalesLine: Record "Sales Line";
     begin
-        if SalesHeader."Document Type" in [SalesHeader."Document Type"::Order] then
-            SalesHeader.TestField("ATU_Purchase Order No.");
-    end;
+        SalesHeader.TestField("Currency Code"); //HS.11
 
+        case SalesHeader."Document Type" of
+            SalesHeader."Document Type"::Order:
+                begin
+                    ATU_lSalesLine.Reset();
+                    ATU_lSalesLine.SetRange("Document Type", SalesHeader."Document Type");
+                    ATU_lSalesLine.SetRange("Document No.", SalesHeader."No.");
+                    ATU_lSalesLine.SetRange(Type, ATU_lSalesLine.Type::Item);
+                    ATU_lSalesLine.SetFilter("No.", '<>%1', '');
+                    if ATU_lSalesLine.FindSet() then begin
+                        repeat
+                            ATU_lSalesLine.TestField("ATU_Country Of Origin");
+                            ATU_lSalesLine.TestField("ATU_Country Of Destination");
+                        until ATU_lSalesLine.Next() = 0;
+                    end;
+                end;
+            SalesHeader."Document Type"::Invoice:
+                begin
+                    SalesHeader.TestField("Payment Terms Code"); //HS.10
+                end;
+        end;
+    end;
+    //HS.9-
+    //HS.8+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post (Yes/No)", 'OnBeforeOnRun', '', false, false)]
     local procedure ATU_PurchPostYesNo_OnBeforeOnRun(var PurchaseHeader: Record "Purchase Header")
     begin
+        PurchaseHeader.TestField("Currency Code"); //HS.11
+
         if PurchaseHeader."Document Type" in [PurchaseHeader."Document Type"::Order] then
             PurchaseHeader.TestField("ATU_Sales Order No.");
     end;
     //HS.8-
+    //HS.12+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order", 'OnBeforeActionEvent', 'CreatePurchaseOrder', false, false)]
+    local procedure ATU_SalesOrder_OnBeforeActionEvent_CreatePurchaseOrder(var Rec: Record "Sales Header")
+    var
+        ATU_lSalesLine: Record "Sales Line";
+    begin
+        ATU_lSalesLine.Reset();
+        ATU_lSalesLine.SetRange("Document Type", Rec."Document Type");
+        ATU_lSalesLine.SetRange("Document No.", Rec."No.");
+        ATU_lSalesLine.SetRange(Type, ATU_lSalesLine.Type::Item);
+        ATU_lSalesLine.SetFilter("No.", '<>%1', '');
+        if ATU_lSalesLine.FindSet() then begin
+            repeat
+                ATU_lSalesLine.TestField("ATU_Shipment Buyer Order No.");
+            until ATU_lSalesLine.Next() = 0;
+        end;
+    end;
+    //HS.12-
+    //HS.14+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnBeforeCheckPurchaseApprovalPossible', '', false, false)]
+    local procedure ATU_ApprovalsMgmt_OnBeforeCheckPurchaseApprovalPossible(var PurchaseHeader: Record "Purchase Header"; var Result: Boolean; var IsHandled: Boolean)
+    begin
+        case PurchaseHeader."Document Type" of
+            PurchaseHeader."Document Type"::Order:
+                begin
+                    PurchaseHeader.TestField("Purchaser Code");
+                    PurchaseHeader.TestField("Shortcut Dimension 1 Code");
+                end;
+        end;
+    end;
+    //HS.14-
+    //HS.15+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInitCustLedgEntry', '', false, false)]
+    local procedure ATU_GenJnlPostLine_OnAfterInitCustLedgEntry(var CustLedgerEntry: Record "Cust. Ledger Entry"; GenJournalLine: Record "Gen. Journal Line"; var GLRegister: Record "G/L Register")
+    begin
+        CustLedgerEntry."ATU_Manual Invoice No." := GenJournalLine."ATU_Manual Invoice No.";
+    end;
+    //HS.15-
+    //HS.17+
+    [EventSubscriber(ObjectType::Report, Report::"Notification Email", 'OnSetReportFieldPlaceholdersOnBeforeGetWebUrl', '', false, false)]
+    local procedure ATU_NotificationEmail_OnSetReportFieldPlaceholdersOnBeforeGetWebUrl(RecRef: RecordRef; var Field1Label: Text; var Field1Value: Text; var Field2Label: Text; var Field2Value: Text; var Field3Label: Text; var Field3Value: Text; var SourceRecRef: RecordRef; var DetailsLabel: Text; var DetailsValue: Text; NotificationEntry: Record "Notification Entry")
+    var
+        ATU_lPurchHdr: Record "Purchase Header";
+        ATU_lPurchInvHdr: Record "Purch. Inv. Header";
+        ATU_lPurchCMHdr: Record "Purch. Cr. Memo Hdr.";
+    begin
+        case RecRef.Number of
+            Database::"Purchase Header":
+                begin
+                    RecRef.SetTable(ATU_lPurchHdr);
+                    DetailsValue := 'Issued by ' + ATU_lPurchHdr."Purchaser Code";
+                end;
+            Database::"Purch. Inv. Header":
+                begin
+                    RecRef.SetTable(ATU_lPurchInvHdr);
+                    DetailsValue := 'Issued by ' + ATU_lPurchInvHdr."Purchaser Code";
+                end;
+            Database::"Purch. Cr. Memo Hdr.":
+                begin
+                    RecRef.SetTable(ATU_lPurchCMHdr);
+                    DetailsValue := 'Issued by ' + ATU_lPurchCMHdr."Purchaser Code";
+                end;
+        end;
+    end;
+    //HS.17-
 }
 //HS.1-

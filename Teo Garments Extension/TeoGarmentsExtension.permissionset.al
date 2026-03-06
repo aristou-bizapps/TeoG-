@@ -30,5 +30,8 @@ permissionset 50001 TeoGarmentsExtension
         page ATU_Division = X,
         page "ATU_Factory Name" = X,
         page ATU_Gender = X,
-        report "ATU_Import Sales Order" = X;
+        report "ATU_Import Sales Order" = X,
+        tabledata "ATU_Ship-to Address" = RIMD,
+        table "ATU_Ship-to Address" = X,
+        page "ATU_Ship-to Address" = X;
 }
